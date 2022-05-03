@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Cest La Vie Uzice</string>
+    <string name="sendvi_i">Sendviči</string>
+    <string name="giros">Giros</string>
+    <string name="tortilje">Tortilje</string>
+    <string name="burgeri">Burgeri</string>
+    <string name="pizze">PIZZE</string>
+    <string name="kom_lepinja">Kom.Lepinja</string>
+    <string name="pala_inci">Palačinci</string>
+    <string name="ostalo">Ostalo</string>
 </resources>
