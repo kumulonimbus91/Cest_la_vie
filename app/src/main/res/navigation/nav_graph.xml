@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pizzaFragment">
+
+    <fragment
+        android:id="@+id/pizzaFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.PizzaFragment"
+        android:label="PizzaFragment"
+        tools:layout="@layout/fragment_pizza"/>
+    <fragment
+        android:id="@+id/burgersFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.BurgersFragment"
+        android:label="fragment_burgers"
+        tools:layout="@layout/fragment_burgers" />
+    <fragment
+        android:id="@+id/desertsFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.DesertsFragment"
+        android:label="fragment_deserts"
+        tools:layout="@layout/fragment_deserts" />
+    <fragment
+        android:id="@+id/sandwichesFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.SandwichesFragment"
+        android:label="fragment_sandwiches"
+        tools:layout="@layout/fragment_sandwiches" />
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.OverviewFragment"
+        android:label="fragment_overview"
+        tools:layout="@layout/fragment_overview" />
+    <fragment
+        android:id="@+id/tortillasFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.TortillasFragment"
+        android:label="fragment_tortillas"
+        tools:layout="@layout/fragment_tortillas" />
+    <fragment
+        android:id="@+id/otherFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.OtherFragment"
+        android:label="fragment_other"
+        tools:layout="@layout/fragment_other" />
+</navigation>
