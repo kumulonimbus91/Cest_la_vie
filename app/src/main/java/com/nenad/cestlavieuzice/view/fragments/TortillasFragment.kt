@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.nenad.cestlavieuzice.R
+import com.nenad.cestlavieuzice.databinding.FragmentTortillasBinding
 
 
 class TortillasFragment : Fragment() {
 
+    private lateinit var mBinding: FragmentTortillasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +23,13 @@ class TortillasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tortillas, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_tortillas, container, false)
+
+
+
+
+
+        return mBinding.root
     }
 
 

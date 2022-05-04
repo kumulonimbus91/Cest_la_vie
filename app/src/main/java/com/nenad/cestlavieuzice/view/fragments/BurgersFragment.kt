@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.nenad.cestlavieuzice.R
+import com.nenad.cestlavieuzice.databinding.FragmentBurgersBinding
 
 
 class BurgersFragment : Fragment() {
+
+    private lateinit var mBinding: FragmentBurgersBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +24,12 @@ class BurgersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_burgers, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_burgers, container, false)
+
+
+
+
+        return mBinding.root
     }
 
 
