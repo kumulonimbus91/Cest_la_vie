@@ -14,6 +14,5 @@ data class Dish (@PrimaryKey(autoGenerate = true)
                     val defaultIngredients: Array<String>?,
                     val hasSize: Boolean,
                     val priceSmall: Int?,
-                    val priceMedium: Int?,
                     val priceBig:Int?,
                     val urlToImage: String) : Parcelable
