@@ -14,11 +14,6 @@ class PizzaFragment : Fragment() {
     private lateinit var mBinding: FragmentPizzaBinding
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +23,12 @@ class PizzaFragment : Fragment() {
 
         return mBinding.root
 
+    }
+
+    fun setOnClickListeners() {
+        mBinding.pizzaCapri.setOnClickListener {
+
+        }
     }
 
 }

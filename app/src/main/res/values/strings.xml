@@ -15,4 +15,7 @@
     <string name="ke_ap">Kečap</string>
     <string name="majonez">Majonez</string>
     <string name="rsd">RSD</string>
+    <string name="nemate_nalog_registrujte_se">Nemate nalog? Registrujte se</string>
+    <string name="ovde">OVDE</string>
+    <string name="imate_nalog_prijavite_se">Imate nalog? Prijavite se</string>
 </resources>

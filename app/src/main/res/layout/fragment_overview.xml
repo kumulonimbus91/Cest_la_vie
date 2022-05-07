@@ -8,11 +8,14 @@
         android:layout_height="match_parent"
         tools:context=".view.fragments.OverviewFragment">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
-            android:src="@drawable/ic_baseline_close_24"
+            app:civ_border_width="2dp"
+            android:background="@drawable/x_btn_background"
+            app:civ_border_color="@color/cv_back"
+            android:src="@drawable/ic_baseline_close_two"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,10 +23,11 @@
             android:id="@+id/img_dish"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/pizza_vegeterijana" />
+            tools:src="@drawable/sendvic_sa_curecim_prsima" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -80,11 +84,11 @@
             android:gravity="center"
             android:maxLines="1"
             android:textColor="@color/cv_back"
-            android:textSize="30sp"
+            android:textSize="29sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_sizes"
-            tools:text="Pizza Vegeterijana" />
+            tools:text="Sendvic cureca prsa" />
 
         <TextView
             android:layout_width="match_parent"

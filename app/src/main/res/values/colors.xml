@@ -13,5 +13,7 @@
     <color name="cv_back">#5A5958</color>
     <color name="ll_background">#CDCDCC</color>
     <color name="xxl">#C6C6BF</color>
+    <color name="button_color_2">#FFB74D</color>
+
 
 </resources>

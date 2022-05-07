@@ -12,13 +12,15 @@
         <activity android:name=".view.activities.LogInActivity"></activity>
         <activity android:name=".view.activities.SignUpActivity" />
         <activity android:name=".view.activities.IntroScreen" />
-        <activity android:name=".view.activities.SplashScreenActivity" />
-        <activity android:name=".view.activities.MainActivity">
+        <activity android:name=".view.activities.SplashScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.activities.MainActivity">
+
         </activity>
     </application>
 
