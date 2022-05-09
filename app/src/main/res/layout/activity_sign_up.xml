@@ -28,6 +28,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline10">
 
             <EditText
+                android:id="@+id/etname"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
@@ -36,12 +37,13 @@
                 android:drawablePadding="12dp"
                 android:ems="10"
                 android:hint="Ime"
-                android:inputType="phone"
+                android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/etemail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
@@ -54,6 +56,7 @@
                 android:paddingStart="10dp"
                 android:textSize="16sp" />
             <EditText
+                android:id="@+id/etphone"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
@@ -69,6 +72,7 @@
 
 
             <EditText
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
@@ -84,6 +88,7 @@
                 android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/et_confirmpassword"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"

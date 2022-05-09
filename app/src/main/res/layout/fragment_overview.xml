@@ -11,13 +11,12 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="14dp"
-            app:civ_border_width="2dp"
             android:background="@drawable/x_btn_background"
-            app:civ_border_color="@color/cv_back"
             android:src="@drawable/ic_baseline_close_two"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:civ_border_color="@color/cv_back"
+            app:civ_border_width="2dp"
+            app:layout_constraintStart_toEndOf="@+id/guideline27"
+            app:layout_constraintTop_toBottomOf="@+id/guideline28" />
 
         <ImageView
             android:id="@+id/img_dish"
@@ -30,16 +29,16 @@
             tools:src="@drawable/sendvic_sa_curecim_prsima" />
 
 
-        <com.google.android.material.button.MaterialButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="9dp"
+            android:layout_marginTop="6dp"
             android:backgroundTint="@color/searchBtn"
-            android:text="Korpa"
-            app:cornerRadius="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:contentDescription="@string/cart"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            app:layout_constraintEnd_toEndOf="@id/guideline29"
+            app:layout_constraintTop_toBottomOf="@+id/guideline28"
+            app:tint="@color/white" />
 
         <LinearLayout
             android:id="@+id/ll_sizes"
@@ -53,25 +52,23 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/searchBtn"
                 android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/searchBtn"
                 android:text="X"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:cornerRadius="15dp"
-                 />
+                app:cornerRadius="15dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:backgroundTint="@color/xxl"
-                android:text="XL"
                 android:maxLines="1"
+                android:text="XL"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:layout_marginStart="20dp"
-                app:cornerRadius="15dp"
-                 />
+                app:cornerRadius="15dp" />
 
 
         </LinearLayout>
@@ -341,6 +338,27 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.60" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.01" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.99" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

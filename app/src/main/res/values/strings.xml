@@ -18,4 +18,7 @@
     <string name="nemate_nalog_registrujte_se">Nemate nalog? Registrujte se</string>
     <string name="ovde">OVDE</string>
     <string name="imate_nalog_prijavite_se">Imate nalog? Prijavite se</string>
+
+    <string name="please_wait">Molimo sacekajte</string>
+    <string name="cart">cart</string>
 </resources>
