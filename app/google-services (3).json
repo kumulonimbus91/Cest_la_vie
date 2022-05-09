@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "910987696269",
+    "project_id": "cest-la-vie-a2d5f",
+    "storage_bucket": "cest-la-vie-a2d5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910987696269:android:10972b6e3eb125cff8eac4",
+        "android_client_info": {
+          "package_name": "com.nenad.cestlavieuzice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910987696269-v528p6g563b34sgr7ncm7914krtqg4q2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqlzlaId_NoPNsa-NSW3hIRs34602sBDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910987696269-v528p6g563b34sgr7ncm7914krtqg4q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
