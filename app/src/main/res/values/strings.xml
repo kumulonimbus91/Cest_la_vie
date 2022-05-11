@@ -21,4 +21,6 @@
 
     <string name="please_wait">Molimo sacekajte</string>
     <string name="cart">cart</string>
+    <string name="poru_i">Poruči</string>
+    <string name="po_alji">POŠALJI</string>
 </resources>

@@ -41,6 +41,10 @@ class LogInActivity : AppCompatActivity() {
         mBinding.loginBtn.setOnClickListener {
             signInRegisteredUser()
         }
+        mBinding.tvForgotp.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun signInRegisteredUser() {
         // Here we get the text from editText and trim the space
