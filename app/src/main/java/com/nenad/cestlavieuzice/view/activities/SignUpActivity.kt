@@ -38,6 +38,9 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        mBinding.btnRegister.setOnClickListener {
+            registerUser()
+        }
     }
     fun userRegisteredSuccess() {
 
@@ -62,10 +65,11 @@ class SignUpActivity : AppCompatActivity() {
         // Here we get the text from editText and trim the space
         val name: String = mBinding.etname.text.toString().trim { it <= ' ' }
         val email: String = mBinding.etemail.text.toString().trim { it <= ' ' }
+        val phoneNum: String = mBinding.etphone.text.toString().trim { it <= ' ' }
         val password: String = mBinding.etPassword.text.toString().trim { it <= ' ' }
         val passwordConfirmed: String = mBinding.etConfirmpassword.text.toString().trim { it <= ' ' }
 
-        if (validateForm(name, email, password, passwordConfirmed)) {
+        if (validateForm(name, email, phoneNum, password, passwordConfirmed)) {
             // Show the progress dialog.
             showProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -99,26 +103,30 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
     }
-    private fun validateForm(name: String, email: String, password: String, passwordConfirmed: String): Boolean {
+    private fun validateForm(name: String, email: String, phoneNum: String, password: String, passwordConfirmed: String): Boolean {
         return when {
             TextUtils.isEmpty(name) -> {
-                showErrorSnackBar("Please enter name.")
+                showErrorSnackBar("Molimo unesite ime.")
                 false
             }
             TextUtils.isEmpty(email) -> {
-                showErrorSnackBar("Please enter email.")
+                showErrorSnackBar("Molimo unesite email.")
                 false
             }
             TextUtils.isEmpty(password) -> {
-                showErrorSnackBar("Please enter password.")
+                showErrorSnackBar("Molimo unesite šifru.")
                 false
             }
             TextUtils.isEmpty(passwordConfirmed) -> {
-                showErrorSnackBar("Please confirm your password")
+                showErrorSnackBar("Molimo potvrdite šifru")
+                false
+            }
+            TextUtils.isEmpty(phoneNum) -> {
+                showErrorSnackBar("Molimo unesite broj telefona")
                 false
             }
             !TextUtils.equals(password, passwordConfirmed) -> {
-                showErrorSnackBar("Passwords are not the same")
+                showErrorSnackBar("Molimo potvrdite šifru")
                 false
             }
 

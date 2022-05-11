@@ -10,12 +10,14 @@ import kotlinx.parcelize.Parcelize
 data class User (
     val id: String = "",
     val name: String = "",
-    val email: String = ""
+    val email: String = "",
+    val phoneNum: String = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString()!!,
         source.readString()!!,
         source.readString()!!,
+        source.readString()!!
 
         )
 
@@ -26,6 +28,7 @@ data class User (
             writeString(id)
             writeString(name)
             writeString(email)
+            writeString(phoneNum)
 
         }
 

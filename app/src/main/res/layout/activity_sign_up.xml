@@ -120,6 +120,7 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline11">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 android:layout_marginTop="35dp"
