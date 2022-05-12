@@ -7,7 +7,9 @@ import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.ActivityIntroScreenBinding
 
 class IntroScreen : AppCompatActivity() {
+
     private lateinit var mBinding: ActivityIntroScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

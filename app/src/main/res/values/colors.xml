@@ -16,6 +16,7 @@
     <color name="button_color_2">#FFB74D</color>
 
     <color name="snackbar_error_color">#EF6C00</color>
+    <color name="btn_adress">#9A948F</color>
 
 
 </resources>

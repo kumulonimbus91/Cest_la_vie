@@ -27,81 +27,109 @@
             app:layout_constraintStart_toStartOf="@+id/guideline14"
             app:layout_constraintTop_toBottomOf="@+id/guideline10">
 
-            <EditText
-                android:id="@+id/etname"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_person_focused"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="Ime"
-                android:inputType="textPersonName"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/etemail"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_email_focused"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="email"
-                android:inputType="textEmailAddress"
-                android:paddingStart="10dp"
-                android:textSize="16sp" />
-            <EditText
-                android:id="@+id/etphone"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_phone_focused"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="broj telefona (+381 64 ... ....)"
-                android:inputType="phone"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="16sp" />
+                android:gravity="center_horizontal"
+                app:startIconDrawable="@drawable/custom_person_focused"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="Ime"
+                    android:inputType="textPassword"
+                    android:textSize="16sp" />
 
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_lock_focused"
-                android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="password"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/et_confirmpassword"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/custom_lock_focused"
-                android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:hint="confirm password"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textSize="16sp" />
+                android:gravity="center_horizontal"
+                app:startIconDrawable="@drawable/custom_email_focused"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="email"
+                    android:inputType="textPassword"
+                    android:textSize="16sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                app:startIconDrawable="@drawable/custom_phone_focused"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="broj telefona(+381 64......)"
+                    android:inputType="textPassword"
+                    android:textSize="16sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/custom_lock_focused"
+                >
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="šifra"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/custom_lock_focused"
+                >
+                <EditText
+                    android:id="@+id/et_password_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="potvrdite šifru"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="16sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
