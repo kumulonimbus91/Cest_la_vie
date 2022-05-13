@@ -15,7 +15,9 @@ import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.database.user.User
 import com.nenad.cestlavieuzice.databinding.ActivitySignUpBinding
 import com.nenad.cestlavieuzice.firebase.Firestore
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivitySignUpBinding

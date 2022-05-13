@@ -24,7 +24,7 @@ data class User (
     override fun describeContents() = 0
 
     companion object : Parceler<User> {
-        override fun User.write(dest: Parcel, flags: Int) = with(dest) {
+        override fun User.write(parcel: Parcel, flags: Int) = with(parcel) {
             writeString(id)
             writeString(name)
             writeString(email)

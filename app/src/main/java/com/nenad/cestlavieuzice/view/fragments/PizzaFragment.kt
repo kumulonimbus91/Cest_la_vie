@@ -11,8 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.database.model.Dish
 import com.nenad.cestlavieuzice.databinding.FragmentPizzaBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class PizzaFragment : Fragment() {
 
     private lateinit var mBinding: FragmentPizzaBinding

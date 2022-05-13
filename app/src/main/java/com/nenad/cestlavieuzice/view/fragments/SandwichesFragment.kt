@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.FragmentSandwichesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SandwichesFragment : Fragment() {
 
     private lateinit var mBinding: FragmentSandwichesBinding

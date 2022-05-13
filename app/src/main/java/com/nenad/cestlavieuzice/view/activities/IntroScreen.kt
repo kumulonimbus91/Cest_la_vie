@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.ActivityIntroScreenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IntroScreen : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityIntroScreenBinding

@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.FragmentOtherBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OtherFragment : Fragment() {
 
     private lateinit var mBinding: FragmentOtherBinding

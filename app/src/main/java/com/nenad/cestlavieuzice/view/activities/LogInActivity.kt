@@ -12,7 +12,9 @@ import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.database.user.User
 import com.nenad.cestlavieuzice.databinding.ActivityLogInBinding
 import com.nenad.cestlavieuzice.firebase.Firestore
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LogInActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityLogInBinding
