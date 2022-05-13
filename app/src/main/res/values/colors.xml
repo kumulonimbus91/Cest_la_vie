@@ -18,5 +18,8 @@
     <color name="snackbar_error_color">#EF6C00</color>
     <color name="btn_adress">#9A948F</color>
 
+    <color name="btn_selected">#D3680F</color>
+    <color name="btn_not_selected">#9A948F</color>
+
 
 </resources>

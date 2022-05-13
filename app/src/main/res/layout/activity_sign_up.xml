@@ -31,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:background="@null"
                 app:startIconDrawable="@drawable/custom_person_focused"
                 >
                 <com.google.android.material.textfield.TextInputEditText
@@ -51,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="40dp"
+                android:background="@null"
                 android:gravity="center_horizontal"
                 app:startIconDrawable="@drawable/custom_email_focused"
                 >

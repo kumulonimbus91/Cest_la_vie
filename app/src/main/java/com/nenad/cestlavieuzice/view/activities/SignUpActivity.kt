@@ -24,6 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         mBinding = ActivitySignUpBinding.inflate(layoutInflater)
 
         setOnClickListeners()
+        supportActionBar?.hide()
         setContentView(mBinding.root)
     }
 
@@ -63,11 +64,11 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun registerUser(): Boolean {
         // Here we get the text from editText and trim the space
-        val name: String = mBinding.etname.text.toString().trim { it <= ' ' }
-        val email: String = mBinding.etemail.text.toString().trim { it <= ' ' }
-        val phoneNum: String = mBinding.etphone.text.toString().trim { it <= ' ' }
+        val name: String = mBinding.etName.text.toString().trim { it <= ' '  }
+        val email: String = mBinding.etEmail.text.toString().trim { it <= ' ' }
+        val phoneNum: String = mBinding.etPhone.text.toString().trim { it <= ' ' }
         val password: String = mBinding.etPassword.text.toString().trim { it <= ' ' }
-        val passwordConfirmed: String = mBinding.etConfirmpassword.text.toString().trim { it <= ' ' }
+        val passwordConfirmed: String = mBinding.etPasswordConfirm.text.toString().trim { it <= ' ' }
 
         if (validateForm(name, email, phoneNum, password, passwordConfirmed)) {
             // Show the progress dialog.

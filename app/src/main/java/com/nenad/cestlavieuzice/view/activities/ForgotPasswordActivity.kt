@@ -32,6 +32,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
 
         }
+        supportActionBar?.hide()
 
         mBinding.backBtn.setOnClickListener {
             onBackPressed()

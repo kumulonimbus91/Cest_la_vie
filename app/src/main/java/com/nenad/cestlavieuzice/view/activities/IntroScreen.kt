@@ -14,6 +14,7 @@ class IntroScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityIntroScreenBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
 
         setOnClickListeners()
 

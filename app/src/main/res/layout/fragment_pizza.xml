@@ -33,6 +33,7 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/pizza_capri_img"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

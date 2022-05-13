@@ -23,6 +23,7 @@ class LogInActivity : AppCompatActivity() {
         mBinding = ActivityLogInBinding.inflate(layoutInflater)
 
         setOnClickListeners()
+        supportActionBar?.hide()
 
         setContentView(mBinding.root)
     }
