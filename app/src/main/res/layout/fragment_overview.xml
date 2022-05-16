@@ -236,6 +236,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline3">
 
             <LinearLayout
+                android:id="@+id/ll_ingr"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -250,6 +251,7 @@
                     android:textStyle="bold" />
 
                 <ScrollView
+                    android:id="@+id/scroll_ingr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 

@@ -20,6 +20,7 @@
 
     <color name="btn_selected">#D3680F</color>
     <color name="btn_not_selected">#9A948F</color>
+    <color name="delete_btn">#C51A1A</color>
 
 
 </resources>

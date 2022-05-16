@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.nenad.cestlavieuzice.R
+import com.nenad.cestlavieuzice.database.model.Dish
 import com.nenad.cestlavieuzice.databinding.FragmentOverviewBinding
 import com.nenad.cestlavieuzice.utils.InputFilterMinMax
 import com.nenad.cestlavieuzice.viewmodel.ViewModel
@@ -23,8 +24,7 @@ class OverviewFragment : Fragment() {
     val args: OverviewFragmentArgs by navArgs()
     var counter: Int = 1
     var ingredientsPrices: Int = 0
-    var ingredients: Array<String>? = null
-
+    var ingredients: MutableList<String>? = null
     val viewModel: ViewModel by activityViewModels<ViewModel>()
 
 
@@ -53,6 +53,8 @@ class OverviewFragment : Fragment() {
 
 
         setOnClickListeners()
+        onCheckboxClicked(mBinding.scrollIngr)
+
 
         Glide.with(this).load(dish.dish.urlToImage).into(mBinding.imgDish)
         mBinding.tvTitle.text = dish.dish.title
@@ -75,74 +77,77 @@ class OverviewFragment : Fragment() {
             when (view.id) {
                 mBinding.checkboxKetchup.id -> {
                     if (checked) {
-                        // Put some meat on the sandwich
+                        ingredients?.add("Kecap")
                     } else {
-                        // Remove the meat
+                        ingredients?.remove("Kecap")
                     }
                 }
                 mBinding.checkboxMayo.id -> {
                     if (checked) {
-                        // Cheese me
+                        ingredients?.add("Majonez")
                     } else {
-                        // I'm lactose intolerant
+                        ingredients?.remove("Majonez")
                     }
                 }
                 mBinding.checkboxCucumber.id -> {
                     if (checked) {
-
+                        ingredients?.add("Krastavac")
                     } else {
-
+                        ingredients?.remove("Krastavac")
                     }
                 }
                 mBinding.checkboxPomfrit.id -> {
                     if (checked) {
+                        ingredients?.add("Pomfrit")
                              ingredientsPrices += 20
 
 
                     } else {
+                        ingredientsPrices -= 20
+                        ingredients?.remove("Pomfrit")
 
                     }
                 }
                 mBinding.checkboxTz.id -> {
                     if (checked) {
+                        ingredientsPrices += 30
+                        ingredients?.add("Caciki")
 
                     } else {
-
+                        ingredientsPrices -= 30
+                        ingredients?.remove("Caciki")
                     }
                 }
                 mBinding.checkboxTrapist.id -> {
                     if (checked) {
+                        ingredients?.add("Trapist")
 
                     } else {
-
+                        ingredients?.remove("Trapist")
                     }
                 }
-                mBinding.checkboxCucumber.id -> {
-                    if (checked) {
 
-                    } else {
-
-                    }
-                }
                 mBinding.checkboxTomato.id -> {
                     if (checked) {
-
+                        ingredients?.add("Paradajz")
                     } else {
-
+                        ingredients?.remove("Paradajz")
                     }
                 }
                 mBinding.checkboxUrnebes.id -> {
                     if (checked) {
+                        ingredients?.add("Urnebes")
 
                     } else {
-
+                        ingredients?.remove("Urnebes")
                     }
                 }
                 mBinding.checkboxSalad.id -> {
                     if (checked) {
+                        ingredients?.add("Zel. salata")
 
                     } else {
-
+                        ingredients?.remove("Zel. salata")
                     }
                 }
 
@@ -204,6 +209,12 @@ class OverviewFragment : Fragment() {
         }
         mBinding.addToCart.setOnClickListener {
 
+            val dish = Dish(null, args.dish.title, mBinding.amount.toString().toInt(), ingredients, args.dish.defaultIngredients, args.dish.hasSize,
+                mBinding.amount.toString().toInt(),
+                mBinding.price.toString().toInt() + ingredientsPrices,mBinding.price.toString().toInt() + ingredientsPrices, args.dish.urlToImage)
+
+
+            viewModel.insertDish(dish)
         }
     }
 
