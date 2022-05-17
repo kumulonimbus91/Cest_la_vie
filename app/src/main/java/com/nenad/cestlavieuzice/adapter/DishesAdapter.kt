@@ -41,7 +41,14 @@ class DishesAdapter(): RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
         holder.itemView.apply {
             Glide.with(this).load(dish.urlToImage).into(holder.binding.img)
             holder.binding.titleTv.text = dish.title
-            holder.binding.tvAmount.text = dish.amount.toString()
+            holder.binding.tvAmount.text = dish.numOfItems.toString()
+
+            if (dish.hasSize) {
+
+            } else {
+                holder.binding.priceTv.text = dish.priceSmall.toString()
+            }
+
 
 
 

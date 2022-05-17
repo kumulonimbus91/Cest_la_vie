@@ -20,6 +20,7 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/ham"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -53,6 +54,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/chicken_breasts"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -86,6 +88,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cajna"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -119,6 +122,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/turkey_breasts"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -152,6 +156,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/kulen"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -185,6 +190,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/pecenica"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -218,6 +224,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/prsuta"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"

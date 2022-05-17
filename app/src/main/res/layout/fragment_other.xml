@@ -22,6 +22,7 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/komplet_lepinja"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -38,7 +39,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="start"
-                            android:src="@drawable/burger_klasik" />
+                            android:src="@drawable/komplet_lepinja" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -46,7 +47,7 @@
                             android:layout_weight="4"
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:text="Burger Klasik"
+                            android:text="Komplet lepinja"
                             android:textSize="22sp" />
 
 
@@ -55,6 +56,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/french_fries"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -71,7 +73,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="start"
-                            android:src="@drawable/burger_xxl" />
+                            android:src="@drawable/pomfrit" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -79,7 +81,7 @@
                             android:layout_weight="4"
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:text="Burger Klasik XXL"
+                            android:text="Pomfrit"
                             android:textSize="22sp" />
 
 
@@ -88,6 +90,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/krainer"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -104,7 +107,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="start"
-                            android:src="@drawable/burger_gurman" />
+                            android:src="@drawable/krainer_kobasica" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -112,7 +115,7 @@
                             android:layout_weight="4"
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:text="Burger Gurman"
+                            android:text="Krainer kobasica"
                             android:textSize="22sp" />
 
 
@@ -121,6 +124,7 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/chicken_nuggets"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -137,7 +141,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="start"
-                            android:src="@drawable/burger_gurman_xxl" />
+                            android:src="@drawable/chicken_nuggets" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -145,7 +149,7 @@
                             android:layout_weight="4"
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:text="Burger Gurman XXL"
+                            android:text="Chicken Nuggets"
                             android:textSize="22sp" />
 
 
@@ -153,7 +157,9 @@
 
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/giros_pileci"
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
@@ -170,7 +176,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="start"
-                            android:src="@drawable/burger_fishburger" />
+                            android:src="@drawable/giros_pileci" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -178,7 +184,42 @@
                             android:layout_weight="4"
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="center"
-                            android:text="Fishburger"
+                            android:text="Giros Pileci"
+                            android:textSize="22sp" />
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/giros_svinjski"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="15dp"
+                    android:layout_height="100dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:src="@drawable/giros_pileci" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:text="Giros Svinjski"
                             android:textSize="22sp" />
 
 

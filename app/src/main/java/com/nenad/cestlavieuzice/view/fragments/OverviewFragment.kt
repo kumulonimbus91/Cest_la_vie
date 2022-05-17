@@ -24,7 +24,7 @@ class OverviewFragment : Fragment() {
     val args: OverviewFragmentArgs by navArgs()
     var counter: Int = 1
     var ingredientsPrices: Int = 0
-    var ingredients: MutableList<String>? = null
+    var ingredients: ArrayList<String>? = null
     val viewModel: ViewModel by activityViewModels<ViewModel>()
 
 
@@ -53,7 +53,7 @@ class OverviewFragment : Fragment() {
 
 
         setOnClickListeners()
-        onCheckboxClicked(mBinding.scrollIngr)
+        onCheckboxClicked(View(requireContext()))
 
 
         Glide.with(this).load(dish.dish.urlToImage).into(mBinding.imgDish)
@@ -209,9 +209,9 @@ class OverviewFragment : Fragment() {
         }
         mBinding.addToCart.setOnClickListener {
 
-            val dish = Dish(null, args.dish.title, mBinding.amount.toString().toInt(), ingredients, args.dish.defaultIngredients, args.dish.hasSize,
+            val dish = Dish(null, args.dish.title, ingredients, args.dish.defaultIngredients, args.dish.hasSize, args.dish.hasIngredients,
                 mBinding.amount.toString().toInt(),
-                mBinding.price.toString().toInt() + ingredientsPrices,mBinding.price.toString().toInt() + ingredientsPrices, args.dish.urlToImage)
+                mBinding.price.toString().toInt() + ingredientsPrices,mBinding.price.toString().toInt() + ingredientsPrices, args.dish.urlToImage, )
 
 
             viewModel.insertDish(dish)

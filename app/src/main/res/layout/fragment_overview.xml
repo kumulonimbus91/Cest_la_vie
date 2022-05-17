@@ -264,21 +264,28 @@
                             android:id="@+id/checkbox_ketchup"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
                             android:buttonTint="@color/searchBtn"
                             android:checked="true"
-                            android:text="@string/ke_ap" />
+                            android:text="@string/ke_ap"
+                            android:focusable="true" />
 
                         <CheckBox
                             android:id="@+id/checkbox_mayo"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
-                            android:text="@string/majonez" />
+                            android:text="@string/majonez"
+                             />
 
                         <CheckBox
                             android:id="@+id/checkbox_tz"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Caciki + 30 RSD" />
 
@@ -286,6 +293,8 @@
                             android:id="@+id/checkbox_pomfrit"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Pomfrit + 20 RSD" />
 
@@ -293,6 +302,8 @@
                             android:id="@+id/checkbox_cucumber"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Krastavac" />
 
@@ -300,6 +311,8 @@
                             android:id="@+id/checkbox_tomato"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Paradajz" />
 
@@ -307,6 +320,8 @@
                             android:id="@+id/checkbox_urnebes"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Urnebes" />
 
@@ -314,6 +329,8 @@
                             android:id="@+id/checkbox_salad"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Zelena salata" />
 
@@ -321,6 +338,8 @@
                             android:id="@+id/checkbox_trapist"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:buttonTint="@color/searchBtn"
                             android:text="Trapist" />
 
