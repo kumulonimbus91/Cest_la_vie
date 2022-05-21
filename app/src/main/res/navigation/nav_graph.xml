@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_pizza">
         <action
             android:id="@+id/action_pizzaFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom" />
 
     </fragment>
     <fragment
@@ -22,7 +23,8 @@
         tools:layout="@layout/fragment_burgers" >
         <action
             android:id="@+id/action_burgersFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
     <fragment
@@ -32,7 +34,8 @@
         tools:layout="@layout/fragment_deserts" >
         <action
             android:id="@+id/action_desertsFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
     <fragment
@@ -42,7 +45,8 @@
         tools:layout="@layout/fragment_sandwiches" >
         <action
             android:id="@+id/action_sandwichesFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
     <fragment
@@ -54,7 +58,9 @@
         <argument
             android:name="Dish"
             app:argType="com.nenad.cestlavieuzice.database.model.Dish" />
-
+        <action
+            android:id="@+id/action_overviewFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
 
 
     </fragment>
@@ -65,7 +71,8 @@
         tools:layout="@layout/fragment_tortillas" >
         <action
             android:id="@+id/action_tortillasFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
     <fragment
@@ -75,7 +82,8 @@
         tools:layout="@layout/fragment_other" >
         <action
             android:id="@+id/action_otherFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
     <fragment
