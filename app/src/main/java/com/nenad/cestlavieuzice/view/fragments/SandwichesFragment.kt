@@ -2,11 +2,18 @@ package com.nenad.cestlavieuzice.view.fragments
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.database.model.Dish
@@ -20,11 +27,9 @@ class SandwichesFragment : Fragment() {
     lateinit var dish: Dish
     lateinit var path: Uri
     lateinit var action: SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+    lateinit var mNavController: NavController
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +38,15 @@ class SandwichesFragment : Fragment() {
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_sandwiches, container, false)
 
-        setOnClickListeners()
+
 
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListeners()
+        mNavController = findNavController()
     }
 
     fun setOnClickListeners() {
@@ -49,8 +60,8 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            mNavController.navigate(action)
 
-            findNavController().navigate(action)
         }
         mBinding.chickenBreasts.setOnClickListener {
             path =
@@ -62,8 +73,7 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.kulen.setOnClickListener {
             path =
@@ -75,8 +85,7 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.cajna.setOnClickListener {
             path =
@@ -88,8 +97,7 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.pecenica.setOnClickListener {
             path =
@@ -101,8 +109,7 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.prsuta.setOnClickListener {
             path =
@@ -114,8 +121,7 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.turkeyBreasts.setOnClickListener {
             path =
@@ -127,14 +133,38 @@ class SandwichesFragment : Fragment() {
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            mNavController.navigate(action)
         }
 
 
 
 
 
+    }
+    private val clickTag = "__click__"
+    fun View.blockingClickListener(debounceTime: Long = 1200L, action: () -> Unit) {
+        this.setOnClickListener(object : View.OnClickListener {
+            private var lastClickTime: Long = 0
+            override fun onClick(v: View) {
+                val timeNow = SystemClock.elapsedRealtime()
+                val elapsedTimeSinceLastClick = timeNow - lastClickTime
+                Log.d(clickTag, """
+                        DebounceTime: $debounceTime
+                        Time Elapsed: $elapsedTimeSinceLastClick
+                        Is within debounce time: ${elapsedTimeSinceLastClick < debounceTime}
+                    """.trimIndent())
+
+                if (elapsedTimeSinceLastClick < debounceTime) {
+                    Log.d(clickTag, "Double click shielded")
+                    return
+                }
+                else {
+                    Log.d(clickTag, "Click happened")
+                    action()
+                }
+                lastClickTime = SystemClock.elapsedRealtime()
+            }
+        })
     }
 
 }

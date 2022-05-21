@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.nenad.cestlavieuzice.R
@@ -50,7 +53,7 @@ class OverviewFragment : Fragment() {
         mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
         mBinding.amount.filters = arrayOf(InputFilterMinMax(0,9))
 
-
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
 
         setOnClickListeners()
         onCheckboxClicked(View(requireContext()))
@@ -66,6 +69,11 @@ class OverviewFragment : Fragment() {
         } else {
             mBinding.llSizes.visibility = View.INVISIBLE
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
     }
 
 
@@ -99,7 +107,7 @@ class OverviewFragment : Fragment() {
                 mBinding.checkboxPomfrit.id -> {
                     if (checked) {
                         ingredients?.add("Pomfrit")
-                             ingredientsPrices += 20
+                        ingredientsPrices += 20
 
 
                     } else {
@@ -215,6 +223,10 @@ class OverviewFragment : Fragment() {
 
 
             viewModel.insertDish(dish)
+        }
+        mBinding.closeBtn.setOnClickListener {
+            findNavController().navigate(R.id.pizzaFragment)
+            requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
         }
     }
 

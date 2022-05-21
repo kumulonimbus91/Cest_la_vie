@@ -1,140 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/img_menu"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:id="@+id/ll_go"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_menu_24"
-            app:layout_constraintStart_toStartOf="@+id/guideline24"
-            app:layout_constraintTop_toTopOf="@+id/guideline22" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:src="@drawable/ic_baseline_notifications_24"
-            app:layout_constraintEnd_toStartOf="@+id/guideline23"
-            app:layout_constraintTop_toTopOf="@+id/guideline22" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/searchBtn"
-            app:tint="@color/white"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
-            app:layout_constraintBottom_toTopOf="@+id/guideline25"
-            app:layout_constraintEnd_toStartOf="@+id/guideline23"
-            android:contentDescription="@string/cart" />
-
-        <HorizontalScrollView
-            android:id="@+id/horizontal_scroll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_margin="16dp"
-            android:fillViewport="true"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_menu">
-
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:id="@+id/ll_to_hide"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/img_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/ic_baseline_menu_24"
+                        app:layout_constraintStart_toStartOf="@+id/guideline24"
+                        app:layout_constraintTop_toTopOf="@+id/guideline22" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/pizze_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/pizze"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="290dp"
+                        android:src="@drawable/ic_baseline_notifications_24"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline23"
+                        app:layout_constraintTop_toTopOf="@+id/guideline22" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/sendvici"
+                </LinearLayout>
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/sendvi_i"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="16dp"
+                    android:fillViewport="true"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_go">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/burgeri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/burgeri"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tortilje"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/tortilje"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/pizze_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/pizze"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/deserts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/dezerti"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/sendvici"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/sendvi_i"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ostalo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:backgroundTint="@color/searchBtn"
-                    android:elevation="10dp"
-                    android:maxLines="1"
-                    android:text="@string/ostalo"
-                    android:textColor="@color/white"
-                    app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/burgeri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/burgeri"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/tortilje"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/tortilje"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/deserts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/dezerti"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ostalo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="5dp"
+                            android:backgroundTint="@color/searchBtn"
+                            android:elevation="10dp"
+                            android:maxLines="1"
+                            android:text="@string/ostalo"
+                            android:textColor="@color/white"
+                            app:cornerRadius="15dp" />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
 
 
             </LinearLayout>
 
 
-        </HorizontalScrollView>
+
+        </FrameLayout>
+
+
+
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            app:defaultNavHost="true"
             app:layout_constraintBottom_toTopOf="@+id/guideline25"
             app:layout_constraintEnd_toEndOf="@+id/guideline23"
             app:layout_constraintStart_toStartOf="@+id/guideline24"
-            app:layout_constraintTop_toBottomOf="@+id/guideline26"
+            app:layout_constraintTop_toBottomOf="@+id/ll_go"
             app:navGraph="@navigation/nav_graph" />
+
+
+
+
+
+
+
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline22"
@@ -162,7 +191,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.99" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline26"

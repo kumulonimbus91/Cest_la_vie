@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.database.model.Dish
@@ -20,6 +23,7 @@ class PizzaFragment : Fragment() {
     lateinit var dish:Dish
     lateinit var path: Uri
     lateinit var action: PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+    lateinit var mNavController: NavController
 
 
     override fun onCreateView(
@@ -29,10 +33,18 @@ class PizzaFragment : Fragment() {
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_pizza, container, false)
 
-        setOnClickListeners()
+
 
         return mBinding.root
 
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListeners()
+        mNavController = findNavController()
     }
 
     fun setOnClickListeners() {
@@ -47,7 +59,13 @@ class PizzaFragment : Fragment() {
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
 
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //Navigation.findNavController(View(requireContext())).navigate(action)
+            //NavHostFragment.findNavController(this).navigate(R.id.action_pizzaFragment_to_overviewActivity)
+            mNavController.navigate(action)
+           // findNavController().navigate(action)
+
+
         }
         mBinding.pizzaSiciliana.setOnClickListener {
             path =
@@ -59,8 +77,9 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.pizzaCest.setOnClickListener {
             path =
@@ -72,8 +91,9 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.pizzaQuatro.setOnClickListener {
             path =
@@ -85,8 +105,10 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
 
-            findNavController().navigate(action)
         }
         mBinding.pizzaVojvodj.setOnClickListener {
             path =
@@ -98,8 +120,9 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.pizzaVege.setOnClickListener {
             path =
@@ -111,8 +134,9 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
         }
 
         mBinding.pizzaPorodicnaCapr.setOnClickListener {
@@ -125,8 +149,9 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
         }
         mBinding.pizzaPorodicnaQuatr.setOnClickListener {
             path =
@@ -138,8 +163,11 @@ class PizzaFragment : Fragment() {
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            //NavHostFragment.findNavController(this).navigate(action)
+            //findNavController().navigate(action)
+            mNavController.navigate(action)
 
-            findNavController().navigate(action)
+
         }
     }
 

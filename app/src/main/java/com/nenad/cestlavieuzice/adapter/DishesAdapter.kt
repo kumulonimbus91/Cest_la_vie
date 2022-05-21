@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.nenad.cestlavieuzice.database.model.Dish
 import com.nenad.cestlavieuzice.databinding.DishitemBinding
 
-class DishesAdapter(): RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
+class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
 
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Dish>() {
@@ -44,12 +44,10 @@ class DishesAdapter(): RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
             holder.binding.tvAmount.text = dish.numOfItems.toString()
 
             if (dish.hasSize) {
-
+                holder.binding.priceTv.text = dish.priceBig.toString()
             } else {
                 holder.binding.priceTv.text = dish.priceSmall.toString()
             }
-
-
 
 
         }
@@ -59,11 +57,10 @@ class DishesAdapter(): RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
-    class ViewHolder  constructor(
+
+    class ViewHolder constructor(
         val binding: DishitemBinding
     ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-
-
 
 
         companion object {
@@ -82,10 +79,7 @@ class DishesAdapter(): RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
         fun bind(item: Dish) {
 
 
-
-
         }
-
 
 
         override fun onClick(p0: View?) {
