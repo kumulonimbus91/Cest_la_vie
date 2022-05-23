@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -29,6 +30,7 @@ class OverviewFragment : Fragment() {
     var ingredientsPrices: Int = 0
     var ingredients: ArrayList<String>? = null
     val viewModel: ViewModel by activityViewModels<ViewModel>()
+    lateinit var mNavController: NavController
 
 
 
@@ -54,6 +56,7 @@ class OverviewFragment : Fragment() {
         mBinding.amount.filters = arrayOf(InputFilterMinMax(0,9))
 
         requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
+        mNavController = findNavController()
 
         setOnClickListeners()
         onCheckboxClicked(View(requireContext()))
@@ -227,6 +230,11 @@ class OverviewFragment : Fragment() {
         mBinding.closeBtn.setOnClickListener {
             findNavController().navigate(R.id.pizzaFragment)
             requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
+        }
+        mBinding.fabCart.setOnClickListener {
+
+
+            mNavController.navigate(R.id.action_overviewFragment_to_orderFragment)
         }
     }
 

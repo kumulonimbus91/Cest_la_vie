@@ -60,7 +60,8 @@
             app:argType="com.nenad.cestlavieuzice.database.model.Dish" />
         <action
             android:id="@+id/action_overviewFragment_to_orderFragment"
-            app:destination="@id/orderFragment" />
+            app:destination="@id/orderFragment"
+            app:enterAnim="@anim/from_right"/>
 
 
     </fragment>
