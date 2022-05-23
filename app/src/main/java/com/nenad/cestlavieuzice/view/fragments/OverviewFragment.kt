@@ -184,15 +184,15 @@ class OverviewFragment : Fragment() {
             counter += 1
 
             mBinding.amount.setText(counter.toString())
-//            if (args.dish.hasSize) {
-//                if (mBinding.xbtn.isSelected) {
-//                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
-//                } else if (mBinding.xlbtn.isSelected) {
-//                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
-//                }
-//            } else {
-//                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
-//            }
+            if (args.dish.hasSize) {
+                if (mBinding.xbtn.isSelected) {
+                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+                } else if (mBinding.xlbtn.isSelected) {
+                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
+                }
+            } else {
+                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+            }
 
         }
         mBinding.subtractBtn.setOnClickListener {

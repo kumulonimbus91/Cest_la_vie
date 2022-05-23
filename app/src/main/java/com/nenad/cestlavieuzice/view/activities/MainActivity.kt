@@ -1,6 +1,8 @@
 package com.nenad.cestlavieuzice.view.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.*
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +12,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.auth.FirebaseAuth
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.ActivityMainBinding
 import com.nenad.cestlavieuzice.view.fragments.*
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
 
         setOnClickListeners()
+        drawerItemSelectedListener()
 
         viewModel = ViewModelProvider(this)[ViewModel::class.java]
 
@@ -75,5 +79,75 @@ class MainActivity : AppCompatActivity() {
 
             mNavController.navigate(R.id.otherFragment)
         }
+        mBinding.imgMenu.setOnClickListener {
+
+            if (mBinding.drawerLayout.isOpen) {
+                mBinding.drawerLayout.closeDrawer(Gravity.LEFT)
+            } else {
+                mBinding.drawerLayout.openDrawer(Gravity.LEFT)
+            }
+
+
+        }
+    }
+
+    private fun drawerItemSelectedListener() {
+        mBinding.navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+
+                R.id.nav_sign_out -> {
+
+                    FirebaseAuth.getInstance().signOut()
+
+
+                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
+                    startActivity(intent)
+                    finish()
+
+
+
+
+
+                    return@setNavigationItemSelectedListener true
+
+                }
+                R.id.history -> {
+                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
+                    startActivity(intent)
+                    finish()
+
+
+
+
+
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.settings -> {
+                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
+                    startActivity(intent)
+                    finish()
+
+
+
+
+
+
+
+                    return@setNavigationItemSelectedListener true
+                }
+
+
+                else -> {
+                    return@setNavigationItemSelectedListener false
+                }
+
+
+
+            }
+
+
+        }
+
+
     }
 }
