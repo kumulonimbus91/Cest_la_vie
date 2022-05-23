@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.nenad.cestlavieuzice.R
-import com.nenad.cestlavieuzice.databinding.FragmentHistoryBinding
+import com.nenad.cestlavieuzice.databinding.FragmentSettingsBinding
 
 
-class HistoryFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
-    lateinit var mBinding: FragmentHistoryBinding
+    lateinit var mBinding: FragmentSettingsBinding
 
 
 
@@ -21,7 +21,9 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_history, container, false)
+
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
+
 
 
         return mBinding.root
