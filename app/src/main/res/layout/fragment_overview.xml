@@ -106,7 +106,7 @@
             tools:text="Kečap, pečurke, pavlaka, rukola" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/cv_back"
             app:cardCornerRadius="15sp"
@@ -117,6 +117,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical|start"
                 android:orientation="horizontal">
 
                 <TextView
@@ -126,8 +127,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:textColor="@color/white"
-                    android:textSize="33sp"
+                    android:textSize="30sp"
                     tools:text="340" />
 
                 <TextView
@@ -138,7 +140,7 @@
                     android:gravity="center"
                     android:text="@string/rsd"
                     android:textColor="@color/white"
-                    android:textSize="33sp" />
+                    android:textSize="30sp" />
 
 
             </LinearLayout>

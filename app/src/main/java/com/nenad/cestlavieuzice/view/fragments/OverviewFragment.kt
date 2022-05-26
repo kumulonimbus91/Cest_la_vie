@@ -1,5 +1,6 @@
 package com.nenad.cestlavieuzice.view.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,7 +42,7 @@ class OverviewFragment : Fragment() {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_overview, container, false)
 
-
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
 
         return mBinding.root
     }
@@ -55,7 +56,7 @@ class OverviewFragment : Fragment() {
         mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
         mBinding.amount.filters = arrayOf(InputFilterMinMax(0,9))
 
-        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
+
         mNavController = findNavController()
 
         setOnClickListeners()
@@ -72,6 +73,11 @@ class OverviewFragment : Fragment() {
         } else {
             mBinding.llSizes.visibility = View.INVISIBLE
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
     }
 
     override fun onDetach() {
@@ -204,15 +210,15 @@ class OverviewFragment : Fragment() {
 
             mBinding.amount.setText(counter.toString())
 
-//            if (args.dish.hasSize) {
-//                if (mBinding.xbtn.isSelected) {
-//                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
-//                } else if (mBinding.xlbtn.isSelected) {
-//                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
-//                }
-//            } else {
-//                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
-//            }
+            if (args.dish.hasSize) {
+                if (mBinding.xbtn.isSelected) {
+                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+                } else if (mBinding.xlbtn.isSelected) {
+                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
+                }
+            } else {
+                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+            }
 
 
 
@@ -221,8 +227,8 @@ class OverviewFragment : Fragment() {
         mBinding.addToCart.setOnClickListener {
 
             val dish = Dish(null, args.dish.title, ingredients, args.dish.defaultIngredients, args.dish.hasSize, args.dish.hasIngredients,
-                mBinding.amount.toString().toInt(),
-                mBinding.price.toString().toInt() + ingredientsPrices,mBinding.price.toString().toInt() + ingredientsPrices, args.dish.urlToImage, )
+                mBinding.amount.text.toString().toInt(),
+                mBinding.price.text.toString().toInt() + ingredientsPrices,mBinding.price.text.toString().toInt() + ingredientsPrices, args.dish.urlToImage)
 
 
             viewModel.insertDish(dish)

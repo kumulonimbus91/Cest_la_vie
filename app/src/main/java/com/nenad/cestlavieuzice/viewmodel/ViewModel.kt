@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.nenad.cestlavieuzice.database.Localdatasource
 import com.nenad.cestlavieuzice.database.Repository
 import com.nenad.cestlavieuzice.database.model.Dish
+import com.nenad.cestlavieuzice.database.model.Order
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,6 +20,8 @@ class ViewModel @Inject constructor(
     //val readArt: LiveData<List<Article>> = repository.local.readArticles().asLiveData()
 
     val dishes: LiveData<List<Dish>> = repository.getDishes().asLiveData()
+
+    val orders: LiveData<List<Order>> = repository.getOrders().asLiveData()
 
    fun insertDish(dish: Dish) {
        viewModelScope.launch {
@@ -46,7 +49,6 @@ class ViewModel @Inject constructor(
 
      val dishTotal = Transformations.map(dishes) { dishes ->
          var priceTotal = 0
-
          for (dish in dishes) {
              priceTotal += dish.priceSmall!!
 
@@ -55,34 +57,26 @@ class ViewModel @Inject constructor(
      }
 
 
+    fun insertOrder(order: Order) {
+        viewModelScope.launch {
+            repository.insertOrder(order)
+        }
+    }
 
-//    val foodTotal = Transformations.map(foods) { foods ->
-//        var gramsTotal = 0.0
-//        var carbsTotal = 0.0
-//        var proteinsTotal = 0.0
-//        var fatsTotal = 0.0
-//        var kcalTotal = 0.0
-//
-//        for (food in foods) {
-//            gramsTotal += food.grams
-//            carbsTotal += food.carbs
-//            proteinsTotal += food.proteins
-//            fatsTotal += food.fats
-//            kcalTotal += food.kcal
-//        }
-//
-//        FoodModel(
-//            name = "",
-//            grams = gramsTotal,
-//            carbs = carbsTotal,
-//            proteins = proteinsTotal,
-//            fats = fatsTotal,
-//            kcal = kcalTotal.toInt(),
-//            date = ""
-//
-//        )
-//
-//    }
+    fun deleteOrder(order: Order) {
+        viewModelScope.launch {
+            repository.deleteOrder(order)
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 
