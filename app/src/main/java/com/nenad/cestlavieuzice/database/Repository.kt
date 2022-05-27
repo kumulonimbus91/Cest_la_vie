@@ -19,7 +19,6 @@ class Repository @Inject constructor(val local: Localdatasource) {
 
        suspend fun insertOrder(order: Order) = local.insertOrder(order)
 
-       suspend fun deleteOrder(order: Order) = local.deleteOrder(order)
 
        suspend fun deleteAllOrders() = local.deleteAllOrders()
 

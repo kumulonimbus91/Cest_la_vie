@@ -17,7 +17,7 @@ class ViewModel @Inject constructor(
     application: Application
 ): AndroidViewModel(application) {
 
-    //val readArt: LiveData<List<Article>> = repository.local.readArticles().asLiveData()
+
 
     val dishes: LiveData<List<Dish>> = repository.getDishes().asLiveData()
 
@@ -63,11 +63,7 @@ class ViewModel @Inject constructor(
         }
     }
 
-    fun deleteOrder(order: Order) {
-        viewModelScope.launch {
-            repository.deleteOrder(order)
-        }
-    }
+
 
 
 

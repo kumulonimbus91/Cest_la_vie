@@ -3,7 +3,9 @@ package com.nenad.cestlavieuzice.database
 import androidx.room.TypeConverter
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import java.lang.reflect.Type
+import com.nenad.cestlavieuzice.database.model.Dish
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class Converters {
@@ -33,27 +35,22 @@ class Converters {
     }
 
 
+    @TypeConverter
+    fun storedStringToMyObjects(data: String?): List<Dish?>? {
+        val gson = Gson()
+        if (data == null) {
+            return Collections.emptyList()
+        }
+        val listType = object : TypeToken<List<Dish?>?>() {}.type
+        return gson.fromJson<List<Dish?>>(data, listType)
+    }
+
+    @TypeConverter
+    fun myObjectsToStoredString(myObjects: List<Dish?>?): String? {
+        val gson = Gson()
+        return gson.toJson(myObjects)
+    }
 
 
 
-
-
-
-
-
-
-
-
-
-//    @TypeConverter
-//    fun fromString(value: String?): ArrayList<String> {
-//        val listType: Type = object : TypeToken<ArrayList<String?>?>() {}.type
-//        return Gson().fromJson(value, listType)
-//    }
-//
-//    @TypeConverter
-//    fun fromArrayList(list: ArrayList<String?>?): String {
-//        val gson = Gson()
-//        return gson.toJson(list)
-//    }
 }

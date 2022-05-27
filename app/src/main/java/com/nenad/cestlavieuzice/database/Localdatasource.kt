@@ -34,9 +34,7 @@ class Localdatasource @Inject constructor(private val dao: Dao) {
         dao.deleteAllOrders()
     }
 
-    suspend fun deleteOrder(order: Order) {
-        dao.deleteOrder(order)
-    }
+
 
 
 

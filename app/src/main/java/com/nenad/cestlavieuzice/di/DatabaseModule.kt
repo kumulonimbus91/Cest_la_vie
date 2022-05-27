@@ -18,7 +18,7 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, DishDatabase::class.java, DATABASE_DISH).build()
+        Room.databaseBuilder(context, DishDatabase::class.java, DATABASE_DISH).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides

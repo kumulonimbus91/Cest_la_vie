@@ -34,7 +34,6 @@ class OverviewFragment : Fragment() {
     lateinit var mNavController: NavController
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,10 +50,11 @@ class OverviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val dish = OverviewFragmentArgs.fromBundle(requireArguments())
 
-        mBinding.xbtn.background = ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
+        mBinding.xbtn.background =
+            ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
         counter = 1
         mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
-        mBinding.amount.filters = arrayOf(InputFilterMinMax(0,9))
+        mBinding.amount.filters = arrayOf(InputFilterMinMax(0, 9))
 
 
         mNavController = findNavController()
@@ -85,6 +85,10 @@ class OverviewFragment : Fragment() {
         requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
     }
 
+    override fun onResume() {
+        super.onResume()
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
+    }
 
 
     fun onCheckboxClicked(view: View) {
@@ -174,15 +178,19 @@ class OverviewFragment : Fragment() {
 
     fun setOnClickListeners() {
         mBinding.xbtn.setOnClickListener {
-            mBinding.xbtn.background = ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
-            mBinding.xlbtn.background = ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
+            mBinding.xbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
+            mBinding.xlbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
 
             mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
 
         }
         mBinding.xlbtn.setOnClickListener {
-            mBinding.xbtn.background = ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
-            mBinding.xlbtn.background = ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
+            mBinding.xbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
+            mBinding.xlbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
 
 
 
@@ -195,9 +203,11 @@ class OverviewFragment : Fragment() {
             mBinding.amount.setText(counter.toString())
             if (args.dish.hasSize) {
                 if (mBinding.xbtn.isSelected) {
-                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+                    mBinding.price.text =
+                        (args.dish.priceSmall.toString().toInt() * counter).toString()
                 } else if (mBinding.xlbtn.isSelected) {
-                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
+                    mBinding.price.text =
+                        (args.dish.priceBig.toString().toInt() * counter).toString()
                 }
             } else {
                 mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
@@ -212,34 +222,41 @@ class OverviewFragment : Fragment() {
 
             if (args.dish.hasSize) {
                 if (mBinding.xbtn.isSelected) {
-                    mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+                    mBinding.price.text =
+                        (args.dish.priceSmall.toString().toInt() * counter).toString()
                 } else if (mBinding.xlbtn.isSelected) {
-                    mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
+                    mBinding.price.text =
+                        (args.dish.priceBig.toString().toInt() * counter).toString()
                 }
             } else {
                 mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
             }
 
 
-
-
         }
         mBinding.addToCart.setOnClickListener {
 
-            val dish = Dish(null, args.dish.title, ingredients, args.dish.defaultIngredients, args.dish.hasSize, args.dish.hasIngredients,
+            val dish = Dish(
+                null,
+                args.dish.title,
+                ingredients,
+                args.dish.defaultIngredients,
+                args.dish.hasSize,
+                args.dish.hasIngredients,
                 mBinding.amount.text.toString().toInt(),
-                mBinding.price.text.toString().toInt() + ingredientsPrices,mBinding.price.text.toString().toInt() + ingredientsPrices, args.dish.urlToImage)
+                mBinding.price.text.toString().toInt() + ingredientsPrices,
+                mBinding.price.text.toString().toInt() + ingredientsPrices,
+                args.dish.urlToImage
+            )
 
 
             viewModel.insertDish(dish)
         }
         mBinding.closeBtn.setOnClickListener {
-            findNavController().navigate(R.id.pizzaFragment)
-            requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
+            this.findNavController().popBackStack()
+
         }
         mBinding.fabCart.setOnClickListener {
-
-
             mNavController.navigate(R.id.action_overviewFragment_to_orderFragment)
         }
     }
