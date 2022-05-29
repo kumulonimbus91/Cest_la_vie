@@ -44,11 +44,7 @@ class HistoryFragment : Fragment() {
             ordersAdapter.differ.submitList(it)
 
 
-
         })
-
-
-
 
 
     }

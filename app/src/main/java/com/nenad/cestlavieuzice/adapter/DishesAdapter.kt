@@ -3,6 +3,7 @@ package com.nenad.cestlavieuzice.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,17 @@ class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
 
 
         }
+        holder.binding.btnDelete.setOnClickListener {
+            onItemClickListener?.let {
+                it.onDelete(dish)
+            }
+        }
+
+    }
+    private var onItemClickListener: (MyClickListener)? = null
+
+    fun setOnClickListener(listener: MyClickListener) {
+        onItemClickListener = listener
 
     }
 
@@ -87,5 +99,8 @@ class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
         }
 
 
+    }
+    interface MyClickListener: AdapterView.OnItemClickListener {
+        fun onDelete(p: Dish)
     }
 }

@@ -21,10 +21,6 @@ class TortillasFragment : Fragment() {
     lateinit var path: Uri
     lateinit var action: TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +33,11 @@ class TortillasFragment : Fragment() {
 
 
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListeners()
     }
     fun setOnClickListeners() {
         mBinding.ham.setOnClickListener {
