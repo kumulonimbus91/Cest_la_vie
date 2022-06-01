@@ -3,6 +3,7 @@ package com.nenad.cestlavieuzice.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +33,12 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
         return ViewHolder.from(parent)
 
     }
+    private var onItemClickListener: (OrdersAdapter.MyClickListener)? = null
+
+    fun setOnClickListener(listener: OrdersAdapter.MyClickListener) {
+        onItemClickListener = listener
+
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -41,17 +48,84 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
         holder.bind(order)
 
         holder.itemView.apply {
-            Glide.with(this).load(order.dishes[1]).into(holder.binding.img)
-            holder.binding.amountFirst.text = order.dishes[1].numOfItems.toString()
-            holder.binding.amountSecond.text = order.dishes[2].numOfItems.toString()
-            holder.binding.amountThird.text = order.dishes[3].numOfItems.toString()
-            holder.binding.titleFirst.text = order.dishes[1].title
-            holder.binding.titleSecond.text = order.dishes[2].title
-            holder.binding.titleThird.text = order.dishes[3].title
 
-            holder.binding.price.text = order.dishes.all {
-                it.priceSmall.toString().toBoolean()
-            }.toString()
+
+
+
+
+
+            if (order.dishes.size >= 3) {
+                Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
+                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.amountSecond.text = order.dishes[1].numOfItems.toString()
+                holder.binding.amountThird.text = order.dishes[2].numOfItems.toString()
+                holder.binding.titleFirst.text = order.dishes[0].title
+                holder.binding.titleSecond.text = order.dishes[1].title
+                holder.binding.titleThird.text = order.dishes[2].title
+
+                var total: Int = 0
+                for (i in 0 until order.dishes.size) {
+                    total += order.dishes[i].priceSmall!!
+                }
+                holder.binding.price.text = total.toString()
+
+            } else if (order.dishes.size == 2) {
+                Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
+                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.amountSecond.text = order.dishes[1].numOfItems.toString()
+                holder.binding.titleFirst.text = order.dishes[0].title
+                holder.binding.titleSecond.text = order.dishes[1].title
+
+                holder.binding.amountThird.visibility = View.GONE
+                holder.binding.titleThird.visibility = View.GONE
+                holder.binding.x3.visibility = View.GONE
+
+
+                var total: Int = 0
+                for (i in 0 until order.dishes.size) {
+                    total += order.dishes[i].priceSmall!!
+                }
+                holder.binding.price.text = total.toString()
+
+            } else if (order.dishes.size == 1) {
+                Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
+                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.titleFirst.text = order.dishes[0].title
+
+                holder.binding.amountSecond.visibility = View.GONE
+                holder.binding.titleSecond.visibility = View.GONE
+
+                holder.binding.amountThird.visibility = View.GONE
+                holder.binding.titleThird.visibility = View.GONE
+                holder.binding.x3.visibility = View.GONE
+                holder.binding.x2.visibility = View.GONE
+
+
+
+                var total: Int = 0
+                for (i in 0 until order.dishes.size) {
+                    total += order.dishes[i].priceSmall!!
+                }
+                holder.binding.price.text = total.toString()
+
+            }
+
+            holder.binding.orderAgain.setOnClickListener {
+                onItemClickListener?.let {
+
+                    it.onNavigate(order)
+                }
+            }
+            holder.binding.deleteBtn.setOnClickListener {
+                onItemClickListener?.let {
+                    it.onDelete(order)
+                }
+            }
+
+
+
+
+
 
 
 
@@ -92,6 +166,11 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
 
         }
 
+
+    }
+    interface MyClickListener: AdapterView.OnItemClickListener {
+        fun onNavigate(p: Order?)
+        fun onDelete(p: Order)
 
     }
 

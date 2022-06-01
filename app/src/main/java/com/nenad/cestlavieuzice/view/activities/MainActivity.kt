@@ -8,10 +8,7 @@ import androidx.fragment.app.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.google.firebase.auth.FirebaseAuth
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.ActivityMainBinding
@@ -92,6 +89,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun drawerItemSelectedListener() {
+
+        var newFragment: Fragment
+        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+
         mBinding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
 
@@ -112,9 +113,17 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.history -> {
-                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
-                    startActivity(intent)
-                    finish()
+//                  newFragment = HistoryFragment()
+//                    transaction.replace(mBinding.navHostFragment.id, newFragment)
+//                    transaction.commit()
+
+                    mNavController.navigate(R.id.historyFragment)
+
+
+
+//                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
+//                    startActivity(intent)
+//                    finish()
 
 
 

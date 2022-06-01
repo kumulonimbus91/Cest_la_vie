@@ -50,31 +50,27 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
+                android:maxLines="3"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:layout_margin="10dp"
+                android:textSize="16sp"
                 tools:text="Dimitrija Tucovica 88" />
-
-            <ImageView
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_change_adress"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:backgroundTint="@color/searchBtn"
-                android:src="@drawable/ic_baseline_add_location_alt_24" />
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_height="?attr/actionBarSize"
+                android:backgroundTint="@color/btn_adress"
+                android:text="Promenite adresu?"
+                app:cornerRadius="15dp"
+                 />
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_change_adress"
-            android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            android:backgroundTint="@color/btn_adress"
-            android:text="Promenite adresu?"
-            app:cornerRadius="15dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline37"
-            app:layout_constraintStart_toStartOf="@+id/guideline36"
-            app:layout_constraintTop_toBottomOf="@+id/guideline7" />
+
 
 
         <TextView
@@ -89,7 +85,7 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline6" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline7" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -100,7 +96,7 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/guideline7"
             tools:listitem="@layout/dishitem"/>
 
         <com.google.android.material.button.MaterialButton
@@ -205,19 +201,14 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.8" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.37" />
+            app:layout_constraintGuide_percent="0.35" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"

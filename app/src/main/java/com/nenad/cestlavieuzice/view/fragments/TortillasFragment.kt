@@ -49,7 +49,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 280,360,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -62,7 +62,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 280,360,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -75,7 +75,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 250,320,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -88,7 +88,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 300,370,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -101,7 +101,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 230,310,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -114,7 +114,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 290,370,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -127,7 +127,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 280,340,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -140,7 +140,7 @@ class TortillasFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 260,310,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish)
+            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }

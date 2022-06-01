@@ -15,19 +15,18 @@ import javax.inject.Inject
 class ViewModel @Inject constructor(
     private val repository: Repository,
     application: Application
-): AndroidViewModel(application) {
-
+) : AndroidViewModel(application) {
 
 
     val dishes: LiveData<List<Dish>> = repository.getDishes().asLiveData()
 
     val orders: LiveData<List<Order>> = repository.getOrders().asLiveData()
 
-   fun insertDish(dish: Dish) {
-       viewModelScope.launch {
-          repository.insertDish(dish)
-       }
-   }
+    fun insertDish(dish: Dish) {
+        viewModelScope.launch {
+            repository.insertDish(dish)
+        }
+    }
 
     fun deleteAllDishes() {
         viewModelScope.launch {
@@ -47,14 +46,14 @@ class ViewModel @Inject constructor(
         }
     }
 
-     val dishTotal = Transformations.map(dishes) { dishes ->
-         var priceTotal = 0
-         for (dish in dishes) {
-             priceTotal += dish.priceSmall!!
+    val dishTotal = Transformations.map(dishes) { dishes ->
+        var priceTotal = 0
+        for (dish in dishes) {
+            priceTotal += dish.priceSmall!!
 
-         }
-         Dish(null, "", null, null, true, true, 1, priceTotal, priceTotal, "")
-     }
+        }
+        Dish(null, "", null, null, true, true, 1, priceTotal, priceTotal, "")
+    }
 
 
     fun insertOrder(order: Order) {
@@ -63,18 +62,18 @@ class ViewModel @Inject constructor(
         }
     }
 
+    fun deleteAllOrders() {
+        viewModelScope.launch {
+            repository.deleteAllOrders()
+        }
 
 
-
-
-
-
-
-
-
-
-
-
+    }
+    fun deleteOrder(order: Order) {
+        viewModelScope.launch {
+            repository.deleteOrder(order)
+        }
+    }
 
 
 }

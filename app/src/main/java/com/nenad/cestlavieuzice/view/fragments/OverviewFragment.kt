@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OverviewFragment : Fragment() {
     private lateinit var mBinding: FragmentOverviewBinding
-    val args: OverviewFragmentArgs by navArgs()
+    private val args: OverviewFragmentArgs by navArgs()
     var counter: Int = 1
     var ingredientsPrices: Int = 0
     var ingredients: ArrayList<String>? = null

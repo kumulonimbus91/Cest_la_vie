@@ -33,6 +33,8 @@ class PizzaFragment : Fragment() {
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_pizza, container, false)
 
+        requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.VISIBLE
+
 
 
         return mBinding.root
@@ -57,7 +59,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
 
 
@@ -72,7 +74,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaCest.setOnClickListener {
@@ -84,7 +86,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaQuatro.setOnClickListener {
@@ -96,7 +98,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
 
         }
@@ -109,7 +111,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaVege.setOnClickListener {
@@ -121,7 +123,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
 
@@ -134,7 +136,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 910,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaPorodicnaQuatr.setOnClickListener {
@@ -146,7 +148,7 @@ class PizzaFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 940,
                 null,imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish)
+            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
 
 

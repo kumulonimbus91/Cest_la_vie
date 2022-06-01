@@ -22,6 +22,8 @@ class Repository @Inject constructor(val local: Localdatasource) {
 
        suspend fun deleteAllOrders() = local.deleteAllOrders()
 
+       suspend fun deleteOrder(order: Order) = local.deleteOrder(order)
+
 
 
 }

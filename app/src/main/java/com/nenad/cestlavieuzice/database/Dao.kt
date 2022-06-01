@@ -34,11 +34,11 @@ interface Dao {
 
 
 
-    @Query("DELETE FROM dishes")
+    @Query("DELETE FROM orders")
     suspend fun deleteAllOrders()
 
 
-    @Delete(entity = Order::class)
-    fun deleteOrders(collectionDataList: List<Order?>?)
+    @Delete
+    suspend fun deleteOrder(order:Order)
 
 }

@@ -59,7 +59,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 240,330,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
 
         }
@@ -72,7 +72,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 260,350,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.kulen.setOnClickListener {
@@ -84,7 +84,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 220,310,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.cajna.setOnClickListener {
@@ -96,7 +96,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 200,280,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pecenica.setOnClickListener {
@@ -108,7 +108,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 250,330,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.prsuta.setOnClickListener {
@@ -120,7 +120,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 270,360,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.turkeyBreasts.setOnClickListener {
@@ -132,7 +132,7 @@ class SandwichesFragment : Fragment() {
                 null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 270,360,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish)
+            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
 
