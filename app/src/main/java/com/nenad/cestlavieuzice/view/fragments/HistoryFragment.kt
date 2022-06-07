@@ -14,12 +14,15 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.common.collect.Lists.reverse
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.adapter.OrdersAdapter
 import com.nenad.cestlavieuzice.database.model.Order
 import com.nenad.cestlavieuzice.databinding.FragmentHistoryBinding
 import com.nenad.cestlavieuzice.viewmodel.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+import java.util.Collections.reverse
 
 @AndroidEntryPoint
 class HistoryFragment : Fragment() {
@@ -49,6 +52,7 @@ class HistoryFragment : Fragment() {
 
         viewModel.orders.observe(viewLifecycleOwner, {
             ordersAdapter.differ.submitList(it)
+
 
 
         })

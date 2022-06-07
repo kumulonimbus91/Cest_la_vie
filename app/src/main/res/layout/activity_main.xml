@@ -72,70 +72,76 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/pizze_btn"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
+                            style="@style/ButtonStyle"
                             android:maxLines="1"
                             android:text="@string/pizze"
                             android:textColor="@color/white"
                             app:cornerRadius="15dp" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/sendvici"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:layout_marginStart="5dp"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
                             android:maxLines="1"
+                            style="@style/ButtonStyle"
                             android:text="@string/sendvi_i"
                             android:textColor="@color/white"
                             app:cornerRadius="15dp" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/burgeri"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:layout_marginStart="5dp"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
+                            style="@style/ButtonStyle"
                             android:maxLines="1"
                             android:text="@string/burgeri"
                             android:textColor="@color/white"
                             app:cornerRadius="15dp" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/tortilje"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:layout_marginStart="5dp"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
+                            style="@style/ButtonStyle"
                             android:maxLines="1"
                             android:text="@string/tortilje"
                             android:textColor="@color/white"
                             app:cornerRadius="15dp" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/deserts"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:layout_marginStart="5dp"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
+                            style="@style/ButtonStyle"
                             android:maxLines="1"
                             android:text="@string/dezerti"
                             android:textColor="@color/white"
                             app:cornerRadius="15dp" />
 
-                        <com.google.android.material.button.MaterialButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/ostalo"
                             android:layout_width="wrap_content"
-                            android:layout_height="50dp"
+                            android:layout_height="40dp"
                             android:layout_marginStart="5dp"
+                            style="@style/ButtonStyle"
                             android:backgroundTint="@color/searchBtn"
                             android:elevation="10dp"
                             android:maxLines="1"

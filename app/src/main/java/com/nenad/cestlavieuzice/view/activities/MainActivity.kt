@@ -1,14 +1,23 @@
 package com.nenad.cestlavieuzice.view.activities
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.Gravity
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.nenad.cestlavieuzice.R
 import com.nenad.cestlavieuzice.databinding.ActivityMainBinding
@@ -36,13 +45,15 @@ class MainActivity : AppCompatActivity() {
         mNavController = navHostFragment.navController
 
 
+
+
         setOnClickListeners()
         drawerItemSelectedListener()
+        mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
 
         viewModel = ViewModelProvider(this)[ViewModel::class.java]
 
         supportActionBar?.hide()
-
 
     }
 
@@ -55,26 +66,62 @@ class MainActivity : AppCompatActivity() {
         mBinding.pizzeBtn.setOnClickListener {
 
             mNavController.navigate(R.id.pizzaFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.burgeri.setOnClickListener {
 
             mNavController.navigate(R.id.burgersFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.tortilje.setOnClickListener {
 
             mNavController.navigate(R.id.tortillasFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.sendvici.setOnClickListener {
 
             mNavController.navigate(R.id.sandwichesFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.deserts.setOnClickListener {
 
             mNavController.navigate(R.id.desertsFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.ostalo.setOnClickListener {
 
             mNavController.navigate(R.id.otherFragment)
+            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
         }
         mBinding.imgMenu.setOnClickListener {
 
@@ -90,8 +137,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun drawerItemSelectedListener() {
 
-        var newFragment: Fragment
-        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+//        var newFragment: Fragment
+//        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
 
         mBinding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -113,17 +160,13 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.history -> {
-//                  newFragment = HistoryFragment()
-//                    transaction.replace(mBinding.navHostFragment.id, newFragment)
-//                    transaction.commit()
+
 
                     mNavController.navigate(R.id.historyFragment)
 
 
 
-//                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
-//                    startActivity(intent)
-//                    finish()
+
 
 
 
@@ -158,4 +201,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }

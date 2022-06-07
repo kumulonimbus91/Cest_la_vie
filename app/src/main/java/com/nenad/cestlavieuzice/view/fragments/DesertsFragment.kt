@@ -35,6 +35,9 @@ class DesertsFragment : Fragment() {
 
         return mBinding.root
     }
+    fun setOnClickListeners() {
+
+    }
 
 
 }

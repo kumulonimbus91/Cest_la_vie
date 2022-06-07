@@ -25,7 +25,7 @@ interface Dao {
 
    ///////////////////////////////////////////////////
 
-    @Query("SELECT * FROM orders")
+    @Query("SELECT * FROM orders ORDER BY id DESC")
     fun getOrders(): Flow<List<Order>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

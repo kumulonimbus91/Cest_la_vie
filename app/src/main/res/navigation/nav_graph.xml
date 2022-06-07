@@ -97,6 +97,7 @@
             app:nullable="true"
             android:defaultValue="@null"
             app:argType="com.nenad.cestlavieuzice.database.model.Order" />
+
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -110,4 +111,9 @@
             android:id="@+id/action_historyFragment_to_pizzaFragment"
             app:destination="@id/pizzaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/adressFragment"
+        android:name="com.nenad.cestlavieuzice.view.fragments.AdressFragment"
+        android:label="AdressFragment"
+        tools:layout="@layout/fragment_adress"/>
 </navigation>

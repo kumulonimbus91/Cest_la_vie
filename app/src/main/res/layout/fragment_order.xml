@@ -18,12 +18,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/img_close"
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/gmap" />
+                tools:context="com.example.mapwithmarker.MapsMarkerActivity"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/btn_close"
@@ -46,10 +47,11 @@
             app:layout_constraintTop_toBottomOf="@+id/guideline4">
 
             <TextView
+                android:id="@+id/adress_tv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:maxLines="3"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
@@ -76,16 +78,28 @@
         <TextView
             android:id="@+id/et_empty"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
             android:text="KORPA JE PRAZNA"
             android:textSize="28sp"
+            android:textColor="@color/cv_back"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline7" />
+
+        <ImageView
+            android:id="@+id/sad_smiley"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_all"
+            app:layout_constraintTop_toBottomOf="@+id/et_empty"/>
 
 
         <androidx.recyclerview.widget.RecyclerView

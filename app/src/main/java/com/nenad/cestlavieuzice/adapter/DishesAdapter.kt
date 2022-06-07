@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.nenad.cestlavieuzice.database.model.Dish
 import com.nenad.cestlavieuzice.databinding.DishitemBinding
 
+
 class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
 
 
@@ -55,6 +56,7 @@ class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
         holder.binding.btnDelete.setOnClickListener {
             onItemClickListener?.let {
                 it.onDelete(dish)
+
             }
         }
 
@@ -64,6 +66,9 @@ class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
     fun setOnClickListener(listener: MyClickListener) {
         onItemClickListener = listener
 
+    }
+    fun removeItemAtPosition(position: Int) {
+        differ.currentList.removeAt(position)
     }
 
     override fun getItemCount(): Int {
@@ -102,5 +107,7 @@ class DishesAdapter() : RecyclerView.Adapter<DishesAdapter.ViewHolder>() {
     }
     interface MyClickListener: AdapterView.OnItemClickListener {
         fun onDelete(p: Dish)
+
+
     }
 }

@@ -18,7 +18,7 @@ class ViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
 
-    val dishes: LiveData<List<Dish>> = repository.getDishes().asLiveData()
+    var dishes: LiveData<List<Dish>> = repository.getDishes().asLiveData()
 
     val orders: LiveData<List<Order>> = repository.getOrders().asLiveData()
 
