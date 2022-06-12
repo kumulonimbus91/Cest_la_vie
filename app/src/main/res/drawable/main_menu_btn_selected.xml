@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
+    android:shape="rectangle">
 
 
-    <solid
-        android:angle="360"
-        android:color="@color/btn_adress"
-        android:type="linear" />
+    <solid android:color="#9E4E0C"/>
 
     <corners android:radius="15dp"/>
 

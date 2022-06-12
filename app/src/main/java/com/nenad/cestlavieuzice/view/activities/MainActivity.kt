@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mNavController: NavController
-
     lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

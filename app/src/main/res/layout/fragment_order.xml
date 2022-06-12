@@ -33,7 +33,7 @@
                 android:layout_margin="14dp"
                 android:background="@drawable/x_btn_background"
                 android:src="@drawable/ic_baseline_close_two"
-                app:civ_border_color="@color/cv_back"
+                app:civ_border_color="@color/btn_adress"
                 app:civ_border_width="2dp" />
 
 
@@ -64,6 +64,7 @@
                 android:layout_weight="1"
                 android:layout_margin="10dp"
                 android:gravity="center"
+                android:textSize="11sp"
                 android:layout_height="?attr/actionBarSize"
                 android:backgroundTint="@color/btn_adress"
                 android:text="Promenite adresu?"

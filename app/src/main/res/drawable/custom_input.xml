@@ -6,7 +6,7 @@
 
             <solid android:color="@color/white" />
             <corners android:radius="10dp" />
-            <stroke android:width="2dp" android:color="@color/searchBtn" />
+            <stroke android:width="2dp" android:color="@color/btn_adress" />
         </shape>
     </item>
     <item android:state_enabled="true" >
@@ -14,7 +14,7 @@
 
             <solid android:color="@color/white" />
             <corners android:radius="10dp" />
-            <stroke android:width="2dp" android:color="@color/cv_back" />
+            <stroke android:width="2dp" android:color="@color/btn_adress" />
         </shape>
     </item>
 

@@ -1,14 +1,19 @@
 package com.nenad.cestlavieuzice.view.fragments
 
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isEmpty
 import androidx.databinding.DataBindingUtil
@@ -40,11 +45,15 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
     lateinit var order: MutableList<Dish>
     val viewModel: ViewModel by activityViewModels<ViewModel>()
     var orderAg: Order? = arguments?.getParcelable<Order>("order")
+
     private lateinit var mMap: GoogleMap
     var fusedLocationProviderClient: FusedLocationProviderClient? = null //last known location
     var currentMarker: Marker? = null
     var currentLocation: Location? = null
-    lateinit var mapView: MapView
+
+    var mAddress: String? = arguments?.getString("address")
+    var mLat: Double? = arguments?.getDouble("lat")
+    var mLong: Double? = arguments?.getDouble("long")
 
 
     override fun onCreateView(
@@ -70,6 +79,10 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         setUpRv()
         setUpClickListeners()
         setUpClickListenerRv()
+
+
+
+
         fusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
         fetchLocation()
@@ -82,8 +95,15 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
 
 
+
+
         orderAg = arguments?.getParcelable("order")
 
+        mAddress = arguments?.getString("address")
+
+        mLat = arguments?.getDouble("lat")
+
+        mLong = arguments?.getDouble("long")
 
 
         if (orderAg?.dishes == null) {
@@ -176,9 +196,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
     fun setUpClickListeners() {
         mBinding.deleteAll.setOnClickListener {
-
-
-            viewModel.deleteAllDishes()
+            alertDialog()
 
 
         }
@@ -200,19 +218,19 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             viewModel.deleteAllDishes()
             val order = Order(null, order, mBinding.fullPrice.text.toString().toInt())
 
-            if (orderAg?.dishes == null) {
+            if (mBinding.rvBasket.isEmpty()) {
+                Toast.makeText(requireContext(), "Korpa je prazna", Toast.LENGTH_SHORT).show()
+            } else if (orderAg?.dishes == null) {
 
                 viewModel.insertOrder(order)
 
-            } else {
+            } else  {
 
                 viewModel.insertOrder(order)
                 viewModel.deleteOrder(orderAg!!)
 
             }
-            if (mBinding.rvBasket.isEmpty()) {
-                Toast.makeText(requireContext(), "Korpa je prazna", Toast.LENGTH_SHORT).show()
-            }
+
 
 
 
@@ -248,48 +266,44 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        if(mLat != 0.0 && mLong != 0.0 && mAddress != null) {
+            val latlong = LatLng(mLat!!, mLong!!)
+            drawMarker(latlong)
 
-        val latlong = LatLng(currentLocation?.latitude!!, currentLocation?.longitude!!)
-        drawMarker(latlong)
+        } else {
+            val latlong = LatLng(currentLocation?.latitude!!, currentLocation?.longitude!!)
+            drawMarker(latlong)
 
-        mMap.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
-            override fun onMarkerDrag(p0: Marker) {
+        }
 
-            }
 
-            override fun onMarkerDragEnd(p0: Marker) {
-                if (currentMarker != null) {
-                    currentMarker?.remove()
 
-                    val newLatLng = LatLng(p0.position.latitude, p0.position.longitude)
-                    drawMarker(newLatLng)
-                }
-            }
 
-            override fun onMarkerDragStart(p0: Marker) {
-
-            }
-
-        })
 
     }
 
     private fun drawMarker(latLng: LatLng) {
         val markerOption = MarkerOptions().position(latLng).title("I am here")
             .snippet(getAdress(latLng.latitude, latLng.longitude)).draggable(true)
-
         mBinding.adressTv.text = getAdress(latLng.latitude, latLng.longitude).toString()
-
         mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
         currentMarker = mMap.addMarker(markerOption)
         currentMarker?.showInfoWindow()
+
+
+
+
+
+
     }
 
     private fun getAdress(lat: Double, long: Double): String? {
         val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-        val adresses = geoCoder.getFromLocation(lat, long, 1)
+        val adresses = geoCoder.getFromLocation(lat, long, 1) // problem is somewhere here
         return adresses[0].getAddressLine(0)
+
+
     }
 
     private fun fetchLocation() {
@@ -312,23 +326,45 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             return
 
         }
-        val task = fusedLocationProviderClient?.lastLocation
-        task?.addOnSuccessListener { location ->
 
-            this.currentLocation = location
-            if (location != null) {
-                val mapFragment =
-                    childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        if(mLat != 0.0 && mLong != 0.0 && mAddress != null) {
+           val task = fusedLocationProviderClient?.lastLocation
+            task?.addOnSuccessListener { location ->
+                currentLocation?.latitude = mLat!!
+                currentLocation?.longitude = mLong!!
+                this.currentLocation = location
+                if (location != null) {
+                    val mapFragment =
+                        childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
-                mapFragment.getMapAsync(this)
+                    mapFragment.getMapAsync(this)
 
+
+                }
+            }
+
+        } else {
+            val task = fusedLocationProviderClient?.lastLocation
+            task?.addOnSuccessListener { location ->
+
+                this.currentLocation = location
+                if (location != null) {
+                    val mapFragment =
+                        childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+
+                    mapFragment.getMapAsync(this)
+
+
+                }
 
             }
 
         }
 
 
+
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -342,6 +378,33 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             }
         }
     }
+    fun alertDialog() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireActivity())
+        builder.setTitle("Da li želite da ispraznite korpu?")
+        builder.setIcon(R.drawable.ic_baseline_delete_24)
+
+        builder.setPositiveButton("Da") { dialogInterface, _ ->
+            viewModel.deleteAllDishes()
+
+        }
+        //performing negative action
+        builder.setNegativeButton("Ne") { dialogInterface, which ->
+            dialogInterface.dismiss() // Dialog will be dismissed
+        }
+
+        // Create the AlertDialog
+        val alertDialog: androidx.appcompat.app.AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area.
+        alertDialog.show()  // show the dialog to UI
+
+
+
+
+
+
+    }
+
 
 
 }

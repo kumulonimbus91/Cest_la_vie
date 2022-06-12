@@ -10,18 +10,23 @@
     <color name="searchBtn">#D3680F</color>
     <color name="buttonSelectedMain">#773C0B</color>
     <color name="background">#B8B3AE</color>
-    <color name="cv_back">#5A5958</color>
+    <color name="cv_back">#BF7F49</color>
     <color name="ll_background">#CDCDCC</color>
     <color name="xxl">#C6C6BF</color>
     <color name="button_color_2">#FFB74D</color>
 
     <color name="snackbar_error_color">#EF6C00</color>
-    <color name="btn_adress">#9A948F</color>
+    <color name="btn_adress">#716F6D</color>
     <color name="header_back">#DA8137</color>
 
     <color name="btn_selected">#D3680F</color>
     <color name="btn_not_selected">#9A948F</color>
-    <color name="delete_btn">#C51A1A</color>
+    <color name="delete_btn">#B51E1E</color>
+
+    <color name="green">#29882E</color>
+    <color name="red">#AA3131</color>
+    <color name="grey">#686765</color>
+    <color name="buttonSelectedMain2">#9E4E0C</color>
 
 
 </resources>

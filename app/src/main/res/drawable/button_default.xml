@@ -3,11 +3,8 @@
     android:shape="rectangle">
 
 
-    <gradient
-        android:angle="360"
-        android:endColor="#EF6C00"
-        android:startColor="#EF6C00"
-        android:type="linear" />
+    <solid
+      android:color="@color/searchBtn" />
 
     <corners android:radius="15dp"/>
 

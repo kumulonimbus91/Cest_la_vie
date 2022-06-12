@@ -53,7 +53,7 @@ class OverviewFragment : Fragment() {
         mBinding.xbtn.background =
             ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
         counter = 1
-        mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+        mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
         mBinding.amount.filters = arrayOf(InputFilterMinMax(0, 9))
 
 
@@ -72,6 +72,12 @@ class OverviewFragment : Fragment() {
             mBinding.llSizes.visibility = View.VISIBLE
         } else {
             mBinding.llSizes.visibility = View.INVISIBLE
+        }
+
+        if (dish.dish.hasIngredients) {
+            mBinding.llIngredients.visibility = View.VISIBLE
+        } else {
+            mBinding.llIngredients.visibility = View.INVISIBLE
         }
     }
 
@@ -183,7 +189,7 @@ class OverviewFragment : Fragment() {
             mBinding.xlbtn.background =
                 ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
 
-            mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+            mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
 
         }
         mBinding.xlbtn.setOnClickListener {
@@ -194,12 +200,11 @@ class OverviewFragment : Fragment() {
 
 
 
-            mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString()
+            mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString() + ingredientsPrices
         }
         mBinding.addBtn.setOnClickListener {
             //var counter: Int = 1
             counter += 1
-
             mBinding.amount.setText(counter.toString())
             if (args.dish.hasSize) {
                 if (mBinding.xbtn.isSelected) {
@@ -210,8 +215,10 @@ class OverviewFragment : Fragment() {
                         (args.dish.priceBig.toString().toInt() * counter).toString()
                 }
             } else {
-                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
             }
+
+
 
         }
         mBinding.subtractBtn.setOnClickListener {
@@ -228,9 +235,11 @@ class OverviewFragment : Fragment() {
                     mBinding.price.text =
                         (args.dish.priceBig.toString().toInt() * counter).toString()
                 }
-            } else {
-                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString()
+     } else {
+                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
             }
+
+
 
 
         }
