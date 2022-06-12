@@ -76,9 +76,9 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
                 holder.binding.titleFirst.text = order.dishes[0].title
                 holder.binding.titleSecond.text = order.dishes[1].title
 
-                holder.binding.amountThird.visibility = View.GONE
-                holder.binding.titleThird.visibility = View.GONE
-                holder.binding.x3.visibility = View.GONE
+                holder.binding.amountThird.visibility = View.INVISIBLE
+                holder.binding.titleThird.visibility = View.INVISIBLE
+                holder.binding.x3.visibility = View.INVISIBLE
 
 
                 var total: Int = 0
@@ -92,13 +92,13 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
                 holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
                 holder.binding.titleFirst.text = order.dishes[0].title
 
-                holder.binding.amountSecond.visibility = View.GONE
-                holder.binding.titleSecond.visibility = View.GONE
+                holder.binding.amountSecond.visibility = View.INVISIBLE
+                holder.binding.titleSecond.visibility = View.INVISIBLE
 
-                holder.binding.amountThird.visibility = View.GONE
-                holder.binding.titleThird.visibility = View.GONE
-                holder.binding.x3.visibility = View.GONE
-                holder.binding.x2.visibility = View.GONE
+                holder.binding.amountThird.visibility = View.INVISIBLE
+                holder.binding.titleThird.visibility = View.INVISIBLE
+                holder.binding.x3.visibility = View.INVISIBLE
+                holder.binding.x2.visibility = View.INVISIBLE
 
 
 

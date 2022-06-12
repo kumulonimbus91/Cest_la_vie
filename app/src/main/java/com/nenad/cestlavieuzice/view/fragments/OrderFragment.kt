@@ -1,26 +1,24 @@
 package com.nenad.cestlavieuzice.view.fragments
 
-import android.content.DialogInterface
-import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.view.get
 import androidx.core.view.isEmpty
+import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -42,7 +40,7 @@ import java.util.*
 class OrderFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mBinding: FragmentOrderBinding
     lateinit var dishesAdapter: DishesAdapter
-    lateinit var order: MutableList<Dish>
+    lateinit var orderL: MutableList<Dish>
     val viewModel: ViewModel by activityViewModels<ViewModel>()
     var orderAg: Order? = arguments?.getParcelable<Order>("order")
 
@@ -124,7 +122,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
                 }
                 mBinding.fullPrice.text = total.toString()
 
-                order = dishes.toMutableList()
+                orderL = dishes.toMutableList()
 
                 if (dishes.isEmpty()) {
                     mBinding.etEmpty.visibility = View.VISIBLE
@@ -162,7 +160,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
                 }
 
-                order = orderAg!!.dishes.toMutableList()
+                orderL = orderAg!!.dishes.toMutableList()
                 mBinding.fullPrice.text = total.toString()
 
 
@@ -216,7 +214,8 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
         mBinding.orderBtn.setOnClickListener {
             viewModel.deleteAllDishes()
-            val order = Order(null, order, mBinding.fullPrice.text.toString().toInt())
+
+            val order = Order(null, orderL, mBinding.fullPrice.text.toString().toInt())
 
             if (mBinding.rvBasket.isEmpty()) {
                 Toast.makeText(requireContext(), "Korpa je prazna", Toast.LENGTH_SHORT).show()
@@ -224,21 +223,26 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
                 viewModel.insertOrder(order)
 
-            } else  {
+            } else if (mBinding.rvBasket.size == orderAg?.dishes?.size) {
 
                 viewModel.insertOrder(order)
                 viewModel.deleteOrder(orderAg!!)
+                Toast.makeText(requireContext(), "Porudzbina je spremna", Toast.LENGTH_SHORT).show()
 
+            } else {
+                for (i in 0 until dishesAdapter.differ.currentList.size) {
+                    orderL.removeAll(orderAg!!.dishes)
+                    orderL.add(dishesAdapter.differ.currentList[i])
+
+                }
+
+                viewModel.insertOrder(order)
+
+                Toast.makeText(requireContext(), "Porudzbina je spremna", Toast.LENGTH_SHORT).show()
             }
 
 
-
-
-
-
             Toast.makeText(requireContext(), "Porudzbina je spremna", Toast.LENGTH_SHORT).show()
-
-
         }
     }
 
@@ -407,4 +411,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
 
 
+
 }
+
+

@@ -89,7 +89,7 @@ class OverviewFragment : Fragment() {
 
             mBinding.price.text =
                 ((args.dish.priceSmall.toString()
-                    .toInt() * counter) + (ingredientsPrices)).toString()
+                    .toInt() + ingredientsPrices) * (counter)).toString()
 
         }
         mBinding.xlbtn.setOnClickListener {
@@ -101,7 +101,7 @@ class OverviewFragment : Fragment() {
             xBtnClicked = false
 
             mBinding.price.text =
-                ((args.dish.priceBig.toString().toInt() * counter) + (ingredientsPrices)).toString()
+                ((args.dish.priceBig.toString().toInt() + ingredientsPrices) * (counter)).toString()
 
         }
         mBinding.addBtn.setOnClickListener {
@@ -221,17 +221,17 @@ class OverviewFragment : Fragment() {
             if (xBtnClicked) {
                 mBinding.price.text =
                     ((args.dish.priceSmall.toString()
-                        .toInt() * counter) + (ingredientsPrices)).toString()
+                        .toInt() + ingredientsPrices) * (counter)).toString()
             } else if (!xBtnClicked) {
                 mBinding.price.text =
                     ((args.dish.priceBig.toString()
-                        .toInt() * counter) + (ingredientsPrices)).toString()
+                        .toInt() + ingredientsPrices) * (counter)).toString()
             }
 
         } else {
             mBinding.price.text =
                 ((args.dish.priceSmall.toString()
-                    .toInt() * counter) + (ingredientsPrices)).toString()
+                    .toInt() + ingredientsPrices) * (counter)).toString()
 
         }
     }

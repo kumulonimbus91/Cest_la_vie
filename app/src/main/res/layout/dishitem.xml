@@ -47,7 +47,7 @@
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="start"
                             android:maxLines="1"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             tools:text="1" />
 
                         <TextView
@@ -58,7 +58,7 @@
                             android:gravity="start"
                             android:maxLines="1"
                             android:text="X"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/title_tv"
@@ -68,7 +68,7 @@
                             android:fontFamily="@font/poppins_semibold"
                             android:gravity="start"
                             android:maxLines="1"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             tools:text="Pizza Vegeterijana" />
 
                     </LinearLayout>
@@ -88,7 +88,7 @@
                             android:gravity="center"
                             tools:text = "560"
                             android:maxLines="1"
-                            android:textSize="22sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -99,7 +99,7 @@
                             android:maxLines="1"
                             android:fontFamily="@font/poppins_semibold"
                             android:text="RSD"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
 
 
                         <com.google.android.material.button.MaterialButton

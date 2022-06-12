@@ -135,10 +135,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun drawerItemSelectedListener() {
-
-//        var newFragment: Fragment
-//        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-
         mBinding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
 
@@ -160,34 +156,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.history -> {
 
-
+                    mBinding.drawerLayout.closeDrawer(Gravity.LEFT)
                     mNavController.navigate(R.id.historyFragment)
 
 
-
-
-
-
-
-
-
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.settings -> {
-                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
-                    startActivity(intent)
-                    finish()
-
-
-
-
-
-
-
-                    return@setNavigationItemSelectedListener true
-                }
-
-
                 else -> {
                     return@setNavigationItemSelectedListener false
                 }

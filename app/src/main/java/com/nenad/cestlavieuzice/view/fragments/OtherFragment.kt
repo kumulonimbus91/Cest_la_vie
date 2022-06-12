@@ -35,9 +35,7 @@ class OtherFragment : Fragment() {
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_other, container, false)
 
-
-
-
+        setOnClickListeners()
 
         return mBinding.root
     }
@@ -64,19 +62,6 @@ class OtherFragment : Fragment() {
             dish = Dish(
                 null, "Pomfrit",
                 null, null, true, false, 1, 110,160,
-                imgPath
-            )
-            action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
-
-            findNavController().navigate(action)
-        }
-        mBinding.chickenNuggets.setOnClickListener {
-            path =
-                Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.chicken_nuggets)
-            val imgPath: String = path.toString()
-            dish = Dish(
-                null, "Chicken nuggets",
-                null, null, true, true, 1, 270,450,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
