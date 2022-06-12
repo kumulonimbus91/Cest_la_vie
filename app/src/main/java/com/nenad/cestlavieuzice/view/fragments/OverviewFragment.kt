@@ -2,6 +2,7 @@ package com.nenad.cestlavieuzice.view.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,13 +33,12 @@ class OverviewFragment : Fragment() {
     var ingredients: ArrayList<String>? = null
     val viewModel: ViewModel by activityViewModels<ViewModel>()
     lateinit var mNavController: NavController
-
+    var xBtnClicked: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_overview, container, false)
 
         requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
@@ -48,37 +48,18 @@ class OverviewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val dish = OverviewFragmentArgs.fromBundle(requireArguments())
 
-        mBinding.xbtn.background =
-            ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
         counter = 1
-        mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
-        mBinding.amount.filters = arrayOf(InputFilterMinMax(0, 9))
 
+        mBinding.amount.filters = arrayOf(InputFilterMinMax(1, 9))
 
         mNavController = findNavController()
 
+        setUi()
         setOnClickListeners()
-        onCheckboxClicked(View(requireContext()))
+        setPrice()
 
 
-        Glide.with(this).load(dish.dish.urlToImage).into(mBinding.imgDish)
-        mBinding.tvTitle.text = dish.dish.title
-        mBinding.defaultingr.text = dish.dish.defaultIngredients
-        mBinding.price.text = dish.dish.priceSmall.toString()
-
-        if (dish.dish.hasSize) {
-            mBinding.llSizes.visibility = View.VISIBLE
-        } else {
-            mBinding.llSizes.visibility = View.INVISIBLE
-        }
-
-        if (dish.dish.hasIngredients) {
-            mBinding.llIngredients.visibility = View.VISIBLE
-        } else {
-            mBinding.llIngredients.visibility = View.INVISIBLE
-        }
     }
 
     override fun onAttach(context: Context) {
@@ -96,92 +77,6 @@ class OverviewFragment : Fragment() {
         requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
     }
 
-
-    fun onCheckboxClicked(view: View) {
-        if (view is CheckBox) {
-            val checked: Boolean = view.isChecked
-
-            when (view.id) {
-                mBinding.checkboxKetchup.id -> {
-                    if (checked) {
-                        ingredients?.add("Kecap")
-                    } else {
-                        ingredients?.remove("Kecap")
-                    }
-                }
-                mBinding.checkboxMayo.id -> {
-                    if (checked) {
-                        ingredients?.add("Majonez")
-                    } else {
-                        ingredients?.remove("Majonez")
-                    }
-                }
-                mBinding.checkboxCucumber.id -> {
-                    if (checked) {
-                        ingredients?.add("Krastavac")
-                    } else {
-                        ingredients?.remove("Krastavac")
-                    }
-                }
-                mBinding.checkboxPomfrit.id -> {
-                    if (checked) {
-                        ingredients?.add("Pomfrit")
-                        ingredientsPrices += 20
-
-
-                    } else {
-                        ingredientsPrices -= 20
-                        ingredients?.remove("Pomfrit")
-
-                    }
-                }
-                mBinding.checkboxTz.id -> {
-                    if (checked) {
-                        ingredientsPrices += 30
-                        ingredients?.add("Caciki")
-
-                    } else {
-                        ingredientsPrices -= 30
-                        ingredients?.remove("Caciki")
-                    }
-                }
-                mBinding.checkboxTrapist.id -> {
-                    if (checked) {
-                        ingredients?.add("Trapist")
-
-                    } else {
-                        ingredients?.remove("Trapist")
-                    }
-                }
-
-                mBinding.checkboxTomato.id -> {
-                    if (checked) {
-                        ingredients?.add("Paradajz")
-                    } else {
-                        ingredients?.remove("Paradajz")
-                    }
-                }
-                mBinding.checkboxUrnebes.id -> {
-                    if (checked) {
-                        ingredients?.add("Urnebes")
-
-                    } else {
-                        ingredients?.remove("Urnebes")
-                    }
-                }
-                mBinding.checkboxSalad.id -> {
-                    if (checked) {
-                        ingredients?.add("Zel. salata")
-
-                    } else {
-                        ingredients?.remove("Zel. salata")
-                    }
-                }
-
-            }
-        }
-    }
-
     fun setOnClickListeners() {
         mBinding.xbtn.setOnClickListener {
             mBinding.xbtn.background =
@@ -189,7 +84,12 @@ class OverviewFragment : Fragment() {
             mBinding.xlbtn.background =
                 ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
 
-            mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
+            xBtnClicked = true
+
+
+            mBinding.price.text =
+                ((args.dish.priceSmall.toString()
+                    .toInt() * counter) + (ingredientsPrices)).toString()
 
         }
         mBinding.xlbtn.setOnClickListener {
@@ -198,53 +98,23 @@ class OverviewFragment : Fragment() {
             mBinding.xlbtn.background =
                 ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
 
+            xBtnClicked = false
 
+            mBinding.price.text =
+                ((args.dish.priceBig.toString().toInt() * counter) + (ingredientsPrices)).toString()
 
-            mBinding.price.text = (args.dish.priceBig.toString().toInt() * counter).toString() + ingredientsPrices
         }
         mBinding.addBtn.setOnClickListener {
-            //var counter: Int = 1
             counter += 1
             mBinding.amount.setText(counter.toString())
-            if (args.dish.hasSize) {
-                if (mBinding.xbtn.isSelected) {
-                    mBinding.price.text =
-                        (args.dish.priceSmall.toString().toInt() * counter).toString()
-                } else if (mBinding.xlbtn.isSelected) {
-                    mBinding.price.text =
-                        (args.dish.priceBig.toString().toInt() * counter).toString()
-                }
-            } else {
-                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
-            }
-
-
-
+            setPrice()
         }
         mBinding.subtractBtn.setOnClickListener {
-            //var counter: Int = 1
             counter -= 1
-
             mBinding.amount.setText(counter.toString())
-
-            if (args.dish.hasSize) {
-                if (mBinding.xbtn.isSelected) {
-                    mBinding.price.text =
-                        (args.dish.priceSmall.toString().toInt() * counter).toString()
-                } else if (mBinding.xlbtn.isSelected) {
-                    mBinding.price.text =
-                        (args.dish.priceBig.toString().toInt() * counter).toString()
-                }
-     } else {
-                mBinding.price.text = (args.dish.priceSmall.toString().toInt() * counter).toString() + ingredientsPrices
-            }
-
-
-
-
+            setPrice()
         }
         mBinding.addToCart.setOnClickListener {
-
             val dish = Dish(
                 null,
                 args.dish.title,
@@ -257,16 +127,134 @@ class OverviewFragment : Fragment() {
                 mBinding.price.text.toString().toInt() + ingredientsPrices,
                 args.dish.urlToImage
             )
-
-
             viewModel.insertDish(dish)
         }
         mBinding.closeBtn.setOnClickListener {
             this.findNavController().popBackStack()
-
         }
         mBinding.fabCart.setOnClickListener {
             mNavController.navigate(R.id.action_overviewFragment_to_orderFragment)
+        }
+        mBinding.checkboxPomfrit.setOnClickListener {
+            if (mBinding.checkboxPomfrit.isChecked) {
+                ingredients?.add("Pomfrit")
+                ingredientsPrices += 20
+               setPrice()
+            } else {
+                ingredients?.remove("Pomfrit")
+                ingredientsPrices -= 20
+               setPrice()
+            }
+        }
+        mBinding.checkboxTz.setOnClickListener {
+            if (mBinding.checkboxTz.isChecked) {
+                ingredients?.add("Caciki")
+                ingredientsPrices += 30
+                setPrice()
+            } else {
+                ingredients?.remove("Caciki")
+                ingredientsPrices -= 30
+                setPrice()
+            }
+        }
+        mBinding.checkboxCucumber.setOnClickListener {
+            if (mBinding.checkboxPomfrit.isChecked) {
+                ingredients?.add("Krastavac")
+            } else {
+                ingredients?.remove("Krastavac")
+            }
+        }
+        mBinding.checkboxKetchup.setOnClickListener {
+            if (mBinding.checkboxKetchup.isChecked) {
+                ingredients?.add("Kecap")
+            } else {
+                ingredients?.remove("Kecap")
+            }
+        }
+        mBinding.checkboxMayo.setOnClickListener {
+            if (mBinding.checkboxMayo.isChecked) {
+                ingredients?.add("Majonez")
+            } else {
+                ingredients?.remove("Majonez")
+            }
+        }
+        mBinding.checkboxTrapist.setOnClickListener {
+           if (mBinding.checkboxTrapist.isChecked) {
+               ingredients?.add("Trapist")
+               ingredientsPrices += 30
+               setPrice()
+           } else {
+               ingredients?.remove("Trapist")
+               ingredientsPrices -= 30
+               setPrice()
+           }
+
+        }
+        mBinding.checkboxTomato.setOnClickListener {
+            if (mBinding.checkboxTomato.isChecked) {
+                ingredients?.add("Paradajiz")
+            } else {
+                ingredients?.add("Paradajiz")
+            }
+        }
+        mBinding.checkboxSalad.setOnClickListener {
+            if (mBinding.checkboxSalad.isChecked) {
+                ingredients?.add("Zel.Salata")
+            } else {
+                ingredients?.add("Zel.Salata")
+            }
+        }
+        mBinding.checkboxUrnebes.setOnClickListener {
+            if (mBinding.checkboxSalad.isChecked) {
+                ingredients?.add("Urnebes")
+            } else {
+                ingredients?.add("Urnebes")
+            }
+        }
+
+
+
+    }
+
+    fun setPrice() {
+        if (args.dish.hasSize) {
+            if (xBtnClicked) {
+                mBinding.price.text =
+                    ((args.dish.priceSmall.toString()
+                        .toInt() * counter) + (ingredientsPrices)).toString()
+            } else if (!xBtnClicked) {
+                mBinding.price.text =
+                    ((args.dish.priceBig.toString()
+                        .toInt() * counter) + (ingredientsPrices)).toString()
+            }
+
+        } else {
+            mBinding.price.text =
+                ((args.dish.priceSmall.toString()
+                    .toInt() * counter) + (ingredientsPrices)).toString()
+
+        }
+    }
+    fun setUi() {
+        Glide.with(this).load(args.dish.urlToImage).into(mBinding.imgDish)
+        mBinding.tvTitle.text = args.dish.title
+        mBinding.defaultingr.text = args.dish.defaultIngredients
+        mBinding.price.text = args.dish.priceSmall.toString()
+        if (args.dish.hasSize) {
+            mBinding.llSizes.visibility = View.VISIBLE
+            xBtnClicked = true
+            mBinding.xbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_selected)
+            mBinding.xlbtn.background =
+                ContextCompat.getDrawable(requireActivity(), R.drawable.btn_not_selected)
+        } else {
+            mBinding.llSizes.visibility = View.INVISIBLE
+        }
+
+        if (args.dish.hasIngredients) {
+            mBinding.llIngredients.visibility = View.VISIBLE
+        } else {
+            mBinding.llIngredients.visibility = View.INVISIBLE
         }
     }
 

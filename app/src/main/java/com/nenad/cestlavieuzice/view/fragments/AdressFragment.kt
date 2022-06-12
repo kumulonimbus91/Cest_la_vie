@@ -140,6 +140,9 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
 
 
       }
+        mBinding.btnClose.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun getAdress(lat: Double, long: Double): String? {

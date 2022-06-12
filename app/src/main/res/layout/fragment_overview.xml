@@ -13,8 +13,8 @@
             android:id="@+id/close_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/x_btn_background"
             android:layout_marginTop="6dp"
+            android:background="@drawable/x_btn_background"
             android:src="@drawable/ic_baseline_close_two"
             app:civ_border_color="@color/btn_adress"
             app:civ_border_width="2dp"
@@ -54,11 +54,11 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/xbtn"
+                style="@style/ButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/button_default"
-                style="@style/ButtonStyle"
                 android:text="@string/x"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -66,9 +66,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/xlbtn"
+                style="@style/ButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="45dp"
-                style="@style/ButtonStyle"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/button_default"
                 android:text="@string/xl"
@@ -109,27 +109,29 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="30dp"
+            android:layout_marginBottom="15dp"
             android:backgroundTint="@color/searchBtn"
             app:cardCornerRadius="15dp"
-            android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/guideline2">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:orientation="horizontal"
                 android:weightSum="2">
+
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/poppins_semibold"
                     android:layout_weight="1"
-                    android:maxLines="1"
+                    android:fontFamily="@font/poppins_semibold"
                     android:gravity="center_horizontal"
+                    android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:text="340" />
@@ -138,33 +140,17 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
                     android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center_horizontal"
                     android:text="@string/rsd"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-
 
 
             </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <androidx.cardview.widget.CardView
@@ -223,28 +209,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <androidx.cardview.widget.CardView
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_to_cart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/add_to_cart"
-                        android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:backgroundTint="@color/searchBtn"
-                        android:text="@string/dodaj_u_korpu"
-                        app:cornerRadius="9dp" />
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="70dp"
+                android:backgroundTint="@color/searchBtn"
+                android:text="@string/dodaj_u_korpu"
+                app:cornerRadius="9dp" />
 
 
         </androidx.cardview.widget.CardView>
@@ -288,7 +260,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:buttonTint="@color/searchBtn"
-                            android:checked="true"
                             android:clickable="true"
                             android:focusable="true"
                             android:text="@string/ke_ap" />
@@ -363,7 +334,7 @@
                             android:buttonTint="@color/searchBtn"
                             android:clickable="true"
                             android:focusable="true"
-                            android:text="Trapist" />
+                            android:text="Trapist + 30 rsd" />
 
 
                     </LinearLayout>
