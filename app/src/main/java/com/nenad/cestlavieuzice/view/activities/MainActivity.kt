@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
@@ -78,7 +77,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
@@ -88,7 +86,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
@@ -98,17 +95,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-        }
-        mBinding.deserts.setOnClickListener {
-
-            mNavController.navigate(R.id.desertsFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
@@ -118,7 +104,6 @@ class MainActivity : AppCompatActivity() {
             mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.deserts.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
         }

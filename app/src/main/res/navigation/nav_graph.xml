@@ -27,17 +27,7 @@
             app:enterAnim="@anim/from_bottom"/>
 
     </fragment>
-    <fragment
-        android:id="@+id/desertsFragment"
-        android:name="com.nenad.cestlavieuzice.view.fragments.DesertsFragment"
-        android:label="fragment_deserts"
-        tools:layout="@layout/fragment_deserts" >
-        <action
-            android:id="@+id/action_desertsFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment"
-            app:enterAnim="@anim/from_bottom"/>
 
-    </fragment>
     <fragment
         android:id="@+id/sandwichesFragment"
         android:name="com.nenad.cestlavieuzice.view.fragments.SandwichesFragment"
@@ -115,5 +105,10 @@
         android:id="@+id/adressFragment"
         android:name="com.nenad.cestlavieuzice.view.fragments.AdressFragment"
         android:label="AdressFragment"
-        tools:layout="@layout/fragment_adress"/>
+        tools:layout="@layout/fragment_adress">
+
+        <action
+            android:id="@+id/action_adressFragment_to_orderFragment2"
+            app:destination="@id/orderFragment" />
+    </fragment>
 </navigation>

@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         app:cardCornerRadius="15dp"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:elevation="15dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -191,7 +191,8 @@
                                 android:layout_weight="2"
                                 android:backgroundTint="@color/searchBtn"
                                 android:fontFamily="@font/poppins_semibold"
-                                android:text="PORUČI PONOVO" />
+                                android:text="PORUČI PONOVO"
+                                android:textSize="11sp"/>
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/delete_btn"

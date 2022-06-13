@@ -56,7 +56,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa sunkom",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 240,330,
+                null, "Šunka + dodaci po izboru", true, true, 1, 240,330,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -69,7 +69,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic pileca prsa",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 260,350,
+                null, "Pileća prsa + dodaci po izboru", true, true, 1, 260,350,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -81,7 +81,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa kulenom",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 220,310,
+                null, "Kulen + dodaci po izboru", true, true, 1, 220,310,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -93,7 +93,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa cajnom",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 200,280,
+                null, "Čajna + dodaci po izboru", true, true, 1, 200,280,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -105,7 +105,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa pecenicom",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 250,330,
+                null, "Pečenica + dodaci po izboru", true, true, 1, 250,330,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -117,7 +117,7 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa prsutom",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 270,360,
+                null, "Pršuta + dodaci po izboru", true, true, 1, 270,360,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
@@ -128,8 +128,8 @@ class SandwichesFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.sendvic_sa_curecim_prsima)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Sendvic sa curecim prsima",
-                null, "Kecap, Pavlaka, Majonez, Sunka", true, true, 1, 270,360,
+                null, "Sendvič sa ćurecim prsima",
+                null, "Ćureća prsa + dodaci po izboru", true, true, 1, 270,360,
                 imgPath
             )
             action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment

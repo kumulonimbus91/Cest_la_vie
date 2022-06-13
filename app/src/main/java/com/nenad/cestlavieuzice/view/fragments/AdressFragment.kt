@@ -42,6 +42,8 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
     var currentLocation: Location? = null
     lateinit var latLng: LatLng
 
+    //lateinit var action: BurgersFragmentDirections.ActionBurgersFragmentToOverviewFragment
+     lateinit var action: AdressFragmentDirections.ActionAdressFragmentToOrderFragment2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -135,8 +137,13 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
                  e.printStackTrace()
              }
 
+          action = AdressFragmentDirections.actionAdressFragmentToOrderFragment2()
 
-              findNavController().navigate(R.id.orderFragment, bundle)
+          findNavController().popBackStack(R.id.adressFragment, true)
+          findNavController().navigate(R.id.orderFragment, bundle)
+
+
+
 
 
       }

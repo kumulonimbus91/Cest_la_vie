@@ -124,19 +124,6 @@
                             app:cornerRadius="15dp" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/deserts"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="5dp"
-                            android:background="@drawable/button_default"
-                            android:elevation="10dp"
-                            style="@style/ButtonStyle"
-                            android:maxLines="1"
-                            android:text="@string/dezerti"
-                            android:textColor="@color/white"
-                            app:cornerRadius="15dp" />
-
-                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/ostalo"
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"

@@ -114,10 +114,10 @@
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline2">
+            app:layout_constraintEnd_toEndOf="@id/guideline46"
+            app:layout_constraintStart_toEndOf="@+id/guideline6">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -126,20 +126,23 @@
 
                 <TextView
                     android:id="@+id/price"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_gravity="start"
                     android:fontFamily="@font/poppins_semibold"
-                    android:gravity="center_horizontal"
+                    android:layout_marginStart="15dp"
+                    android:layout_alignParentStart="true"
                     android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:text="340" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_gravity="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="15dp"
                     android:fontFamily="@font/poppins_semibold"
                     android:gravity="center_horizontal"
                     android:text="@string/rsd"
@@ -147,7 +150,7 @@
                     android:textSize="20sp" />
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -176,7 +179,7 @@
                     android:src="@drawable/iconmonstr_minus_circle_filled_72" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/amount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -204,18 +207,20 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="@id/guideline47"
+            app:layout_constraintStart_toStartOf="@+id/guideline48">
 
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_to_cart"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:backgroundTint="@color/searchBtn"
                 android:text="@string/dodaj_u_korpu"
+                android:textSize="13sp"
                 app:cornerRadius="9dp" />
 
 
@@ -382,6 +387,34 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.99" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.58" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.56" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

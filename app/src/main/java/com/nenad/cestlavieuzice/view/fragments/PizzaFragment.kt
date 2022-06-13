@@ -56,7 +56,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Capricciosa",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kečap, sir, šunka, pečurke - 30cm ", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -71,7 +71,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Siciliana",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kecap,sir, pečurke, feferoni, suvi vrat, pršuta, feta sir - 30cm", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -83,7 +83,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Cest La Vie",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kečap, sir, šunka, kobasica, suvi vrat, pečurke, feferoni, feta sir - 30cm", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -95,7 +95,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Quatro Stagione",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 30cm", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -108,7 +108,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Vojvodjanka",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kečap, sir, pečurke, slanina, jaja, feferoni - 30cm", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -120,7 +120,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pizza Vegeterijana",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 340,
+                null, "Kečap, sir, pečurke, paprika, masline - 30cm", false, false, 1, 340,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -133,7 +133,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Porodicna Capricciosa",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 910,
+                null, "Kečap, sir, šunka, pečurke - 42cm", false, false, 1, 1050,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
@@ -145,7 +145,7 @@ class PizzaFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Porodicna Quatro Stagione",
-                null, "Kecap, Pavlaka, Majonez, Sunka", false, false, 1, 940,
+                null, "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 42cm", false, false, 1, 1090,
                 null,imgPath
             )
             action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment

@@ -23,6 +23,7 @@ import com.nenad.cestlavieuzice.databinding.FragmentOverviewBinding
 import com.nenad.cestlavieuzice.utils.InputFilterMinMax
 import com.nenad.cestlavieuzice.viewmodel.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Integer.MAX_VALUE
 
 @AndroidEntryPoint
 class OverviewFragment : Fragment() {
@@ -50,6 +51,9 @@ class OverviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         counter = 1
+
+
+
 
         mBinding.amount.filters = arrayOf(InputFilterMinMax(1, 9))
 
@@ -108,11 +112,37 @@ class OverviewFragment : Fragment() {
             counter += 1
             mBinding.amount.setText(counter.toString())
             setPrice()
+
+            if (counter == 1) {
+                mBinding.subtractBtn.isEnabled = false
+                mBinding.addBtn.isEnabled = true
+
+            } else if (counter == 9) {
+                mBinding.addBtn.isEnabled = false
+                mBinding.subtractBtn.isEnabled = true
+            } else if (counter in 2..8) {
+                mBinding.addBtn.isEnabled = true
+                mBinding.subtractBtn.isEnabled = true
+            }
+
+
         }
         mBinding.subtractBtn.setOnClickListener {
             counter -= 1
             mBinding.amount.setText(counter.toString())
             setPrice()
+
+            if (counter == 1) {
+                mBinding.subtractBtn.isEnabled = false
+                mBinding.addBtn.isEnabled = true
+
+            } else if (counter == 9) {
+                mBinding.addBtn.isEnabled = false
+                mBinding.subtractBtn.isEnabled = true
+            }  else if (counter in 2..8) {
+                mBinding.addBtn.isEnabled = true
+                mBinding.subtractBtn.isEnabled = true
+            }
         }
         mBinding.addToCart.setOnClickListener {
             val dish = Dish(
@@ -139,11 +169,11 @@ class OverviewFragment : Fragment() {
             if (mBinding.checkboxPomfrit.isChecked) {
                 ingredients?.add("Pomfrit")
                 ingredientsPrices += 20
-               setPrice()
+                setPrice()
             } else {
                 ingredients?.remove("Pomfrit")
                 ingredientsPrices -= 20
-               setPrice()
+                setPrice()
             }
         }
         mBinding.checkboxTz.setOnClickListener {
@@ -179,15 +209,15 @@ class OverviewFragment : Fragment() {
             }
         }
         mBinding.checkboxTrapist.setOnClickListener {
-           if (mBinding.checkboxTrapist.isChecked) {
-               ingredients?.add("Trapist")
-               ingredientsPrices += 30
-               setPrice()
-           } else {
-               ingredients?.remove("Trapist")
-               ingredientsPrices -= 30
-               setPrice()
-           }
+            if (mBinding.checkboxTrapist.isChecked) {
+                ingredients?.add("Trapist")
+                ingredientsPrices += 30
+                setPrice()
+            } else {
+                ingredients?.remove("Trapist")
+                ingredientsPrices -= 30
+                setPrice()
+            }
 
         }
         mBinding.checkboxTomato.setOnClickListener {
@@ -213,7 +243,6 @@ class OverviewFragment : Fragment() {
         }
 
 
-
     }
 
     fun setPrice() {
@@ -235,6 +264,7 @@ class OverviewFragment : Fragment() {
 
         }
     }
+
     fun setUi() {
         Glide.with(this).load(args.dish.urlToImage).into(mBinding.imgDish)
         mBinding.tvTitle.text = args.dish.title
