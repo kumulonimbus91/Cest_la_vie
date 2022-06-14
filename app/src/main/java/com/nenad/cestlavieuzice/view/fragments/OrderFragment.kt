@@ -202,6 +202,10 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             if (orderAg?.dishes != null) {
                 viewModel.deleteAllDishes()
                 this.findNavController().popBackStack()
+            } else if (mLat != 0.0 && mLong != 0.0 && mAddress != null) {
+                //findNavController().popBackStack(R.id.adressFragment, true)
+                    findNavController().popBackStack(R.id.orderFragment, true)
+                this.findNavController().popBackStack()
             } else {
                 this.findNavController().popBackStack()
             }
@@ -209,6 +213,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         }
 
         mBinding.btnChangeAdress.setOnClickListener {
+            //   findNavController().popBackStack(R.id.orderFragment, true)
             this.findNavController().navigate(R.id.adressFragment)
         }
 
@@ -270,7 +275,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        if(mLat != 0.0 && mLong != 0.0 && mAddress != null) {
+        if (mLat != 0.0 && mLong != 0.0 && mAddress != null) {
             val latlong = LatLng(mLat!!, mLong!!)
             drawMarker(latlong)
 
@@ -279,9 +284,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             drawMarker(latlong)
 
         }
-
-
-
 
 
     }
@@ -294,10 +296,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
         currentMarker = mMap.addMarker(markerOption)
         currentMarker?.showInfoWindow()
-
-
-
-
 
 
     }
@@ -331,8 +329,8 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
         }
 
-        if(mLat != 0.0 && mLong != 0.0 && mAddress != null) {
-           val task = fusedLocationProviderClient?.lastLocation
+        if (mLat != 0.0 && mLong != 0.0 && mAddress != null) {
+            val task = fusedLocationProviderClient?.lastLocation
             task?.addOnSuccessListener { location ->
                 currentLocation?.latitude = mLat!!
                 currentLocation?.longitude = mLong!!
@@ -366,7 +364,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         }
 
 
-
     }
 
 
@@ -382,6 +379,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
             }
         }
     }
+
     fun alertDialog() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireActivity())
         builder.setTitle("Da li želite da ispraznite korpu?")
@@ -403,13 +401,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         alertDialog.show()  // show the dialog to UI
 
 
-
-
-
-
     }
-
-
 
 
 }

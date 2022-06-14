@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentContainer
@@ -157,6 +158,7 @@ class OverviewFragment : Fragment() {
                 mBinding.price.text.toString().toInt() + ingredientsPrices,
                 args.dish.urlToImage
             )
+            Toast.makeText(requireContext(), "Dodato u korpu", Toast.LENGTH_SHORT).show()
             viewModel.insertDish(dish)
         }
         mBinding.closeBtn.setOnClickListener {

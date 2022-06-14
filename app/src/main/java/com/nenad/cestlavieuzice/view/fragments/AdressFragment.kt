@@ -137,7 +137,17 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
                  e.printStackTrace()
              }
 
-          action = AdressFragmentDirections.actionAdressFragmentToOrderFragment2()
+          if (bundle == null) {
+              Toast.makeText(requireContext(), "Unesite adresu", Toast.LENGTH_SHORT).show()
+          } else {
+
+
+              //findNavController().popBackStack(R.id.adressFragment, true)
+              findNavController().navigate(R.id.orderFragment, bundle)
+
+          }
+
+
 
           findNavController().popBackStack(R.id.adressFragment, true)
           findNavController().navigate(R.id.orderFragment, bundle)
@@ -148,7 +158,7 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
 
       }
         mBinding.btnClose.setOnClickListener {
-            findNavController().popBackStack()
+            this.findNavController().popBackStack()
         }
     }
 

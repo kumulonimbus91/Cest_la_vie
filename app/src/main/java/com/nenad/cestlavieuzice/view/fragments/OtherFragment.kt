@@ -74,7 +74,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pileci giros",
-                null, null, true, true, 1, 280,360,
+                null, "Piletina, caciki, pomfrit, zelena salata", true, true, 1, 280,360,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -87,7 +87,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Svinjski giros",
-                null, null, true, true, 1, 280,360,
+                null, "Svinjetina, caciki, pomfrit, zelena salata", true, true, 1, 280,360,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -99,7 +99,7 @@ class OtherFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.krainer_kobasica)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Pomfrit",
+                null, "Senf",
                 null, null, false, false, 1, 330,330,
                 imgPath
             )
