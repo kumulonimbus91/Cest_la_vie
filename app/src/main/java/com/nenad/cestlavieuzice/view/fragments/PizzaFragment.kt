@@ -132,7 +132,7 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_capricciosa)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Porodicna Capricciosa",
+                null, "Porodična Capricciosa",
                 null, "Kečap, sir, šunka, pečurke - 42cm", false, false, 1, 1050,
                 null,imgPath
             )
@@ -144,7 +144,7 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_quatro_stagione)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Porodicna Quatro Stagione",
+                null, "Porodična Quatro Stagione",
                 null, "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 42cm", false, false, 1, 1090,
                 null,imgPath
             )

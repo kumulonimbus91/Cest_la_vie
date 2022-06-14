@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.view.get
 import androidx.core.view.isEmpty
 import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
@@ -18,7 +17,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -106,8 +104,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
         if (orderAg?.dishes == null) {
             viewModel.dishes.observe(viewLifecycleOwner, Observer { dishes ->
-
-
                 dishesAdapter.differ.submitList(dishes)
                 var total: Int = 0
                 for (i in 0 until dishes.size) {
@@ -119,10 +115,21 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
                     }
 
 
+
+
+
+
                 }
-                mBinding.fullPrice.text = total.toString()
+
+
 
                 orderL = dishes.toMutableList()
+                mBinding.fullPrice.text = total.toString()
+
+
+
+
+
 
                 if (dishes.isEmpty()) {
                     mBinding.etEmpty.visibility = View.VISIBLE
@@ -168,6 +175,10 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
 
         }
+
+
+
+
 
 
 
@@ -399,6 +410,11 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         // Set other dialog properties
         alertDialog.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area.
         alertDialog.show()  // show the dialog to UI
+
+
+    }
+    fun <T> hasDuplicates(arr: List<Dish>): Boolean {
+        return arr.size != arr.distinct().count();
 
 
     }

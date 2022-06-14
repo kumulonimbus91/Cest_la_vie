@@ -94,7 +94,7 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
                     val address: Address = list!!.get(0)
                     latLng = LatLng(address.latitude, address.longitude)
                     mMap.addMarker(MarkerOptions().position(latLng).title(location))
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
 
                 }
                 return false
@@ -142,15 +142,18 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
           } else {
 
 
-              //findNavController().popBackStack(R.id.adressFragment, true)
+//              //findNavController().popBackStack(R.id.adressFragment, true)
+//              findNavController().navigate(R.id.orderFragment, bundle)
+
+              findNavController().popBackStack(R.id.adressFragment, true)
               findNavController().navigate(R.id.orderFragment, bundle)
 
           }
 
 
 
-          findNavController().popBackStack(R.id.adressFragment, true)
-          findNavController().navigate(R.id.orderFragment, bundle)
+//          findNavController().popBackStack(R.id.adressFragment, true)
+//          findNavController().navigate(R.id.orderFragment, bundle)
 
 
 

@@ -154,8 +154,8 @@ class OverviewFragment : Fragment() {
                 args.dish.hasSize,
                 args.dish.hasIngredients,
                 mBinding.amount.text.toString().toInt(),
-                mBinding.price.text.toString().toInt() + ingredientsPrices,
-                mBinding.price.text.toString().toInt() + ingredientsPrices,
+                mBinding.price.text.toString().toInt(),
+                mBinding.price.text.toString().toInt(),
                 args.dish.urlToImage
             )
             Toast.makeText(requireContext(), "Dodato u korpu", Toast.LENGTH_SHORT).show()

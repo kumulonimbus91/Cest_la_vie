@@ -15,8 +15,8 @@ data class Dish(
     val defaultIngredients: String?,
     val hasSize: Boolean,
     val hasIngredients: Boolean,
-    val numOfItems: Int,
-    val priceSmall: Int?,
-    val priceBig: Int?,
+    var numOfItems: Int,
+    var priceSmall: Int?,
+    var priceBig: Int?,
     val urlToImage: String
 ) : Parcelable
