@@ -3,6 +3,7 @@ Foor order app :poultry_leg: <br />
 with Firebase auth :shield:, <br />
 Google maps API :earth_americas:, <br />
 MVVM, <br />
+Dagger Hilt :dagger:, <br />
 Coroutines :arrows_clockwise:,<br />
 Room database :dvd:, <br />
 Data binding :dizzy:,<br />
