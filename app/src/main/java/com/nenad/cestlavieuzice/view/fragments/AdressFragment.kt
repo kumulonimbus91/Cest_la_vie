@@ -43,7 +43,7 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
     lateinit var latLng: LatLng
 
     //lateinit var action: BurgersFragmentDirections.ActionBurgersFragmentToOverviewFragment
-     lateinit var action: AdressFragmentDirections.ActionAdressFragmentToOrderFragment2
+    lateinit var action: AdressFragmentDirections.ActionAdressFragmentToOrderFragment2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +63,6 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
 
 
         fetchLocation()
-
 
 
         val searchView = mBinding.etSearch
@@ -116,50 +115,45 @@ class AdressFragment : Fragment(), OnMapReadyCallback {
         mMap = googleMap
 
 
-
     }
 
     fun setOnClickListeners() {
-      mBinding.btnSave.setOnClickListener {
+        mBinding.btnSave.setOnClickListener {
 //          if (currentLocation?.latitude != 43.8556 && currentLocation?.longitude != 19.8425) {
 //              Toast.makeText(requireContext(), "Porudžbine su moguće samo u Užicu", Toast.LENGTH_SHORT).show()
 //          } else {
-              val bundle: Bundle? = bundleOf("address" to LatLng(latLng.latitude, latLng.longitude))
-              bundle?.putString("address", getAdress(latLng.latitude, latLng.longitude))
-             try {
-                 bundle?.putDouble("lat", latLng.latitude)
-                 bundle?.putDouble("long", latLng.longitude)
-                 Log.e("Latitude saved", latLng.latitude.toString())
-                 Log.e("Longitude saved", latLng.longitude.toString())
+            val bundle: Bundle? = bundleOf("address" to LatLng(latLng.latitude, latLng.longitude))
+            bundle?.putString("address", getAdress(latLng.latitude, latLng.longitude))
+            try {
+                bundle?.putDouble("lat", latLng.latitude)
+                bundle?.putDouble("long", latLng.longitude)
+                Log.e("Latitude saved", latLng.latitude.toString())
+                Log.e("Longitude saved", latLng.longitude.toString())
 
 
-             } catch (e: Exception) {
-                 e.printStackTrace()
-             }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
 
-          if (bundle == null) {
-              Toast.makeText(requireContext(), "Unesite adresu", Toast.LENGTH_SHORT).show()
-          } else {
+            if (bundle == null) {
+                Toast.makeText(requireContext(), "Unesite adresu", Toast.LENGTH_SHORT).show()
+            } else {
 
 
 //              //findNavController().popBackStack(R.id.adressFragment, true)
 //              findNavController().navigate(R.id.orderFragment, bundle)
 
-              findNavController().popBackStack(R.id.adressFragment, true)
-              findNavController().navigate(R.id.orderFragment, bundle)
+                findNavController().popBackStack(R.id.adressFragment, true)
+                findNavController().navigate(R.id.orderFragment, bundle)
 
-          }
-
+            }
 
 
 //          findNavController().popBackStack(R.id.adressFragment, true)
 //          findNavController().navigate(R.id.orderFragment, bundle)
 
 
-
-
-
-      }
+        }
         mBinding.btnClose.setOnClickListener {
             this.findNavController().popBackStack()
         }

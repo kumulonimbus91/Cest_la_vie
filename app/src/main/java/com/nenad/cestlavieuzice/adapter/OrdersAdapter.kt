@@ -33,6 +33,7 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
         return ViewHolder.from(parent)
 
     }
+
     private var onItemClickListener: (OrdersAdapter.MyClickListener)? = null
 
     fun setOnClickListener(listener: OrdersAdapter.MyClickListener) {
@@ -50,13 +51,9 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
         holder.itemView.apply {
 
 
-
-
-
-
             if (order.dishes.size >= 3) {
                 Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
-                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.amountFirst.text = order.dishes[0].numOfItems.toString()
                 holder.binding.amountSecond.text = order.dishes[1].numOfItems.toString()
                 holder.binding.amountThird.text = order.dishes[2].numOfItems.toString()
                 holder.binding.titleFirst.text = order.dishes[0].title
@@ -71,7 +68,7 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
 
             } else if (order.dishes.size == 2) {
                 Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
-                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.amountFirst.text = order.dishes[0].numOfItems.toString()
                 holder.binding.amountSecond.text = order.dishes[1].numOfItems.toString()
                 holder.binding.titleFirst.text = order.dishes[0].title
                 holder.binding.titleSecond.text = order.dishes[1].title
@@ -89,7 +86,7 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
 
             } else if (order.dishes.size == 1) {
                 Glide.with(this).load(order.dishes[0].urlToImage).into(holder.binding.img)
-                holder.binding.amountFirst.text =  order.dishes[0].numOfItems.toString()
+                holder.binding.amountFirst.text = order.dishes[0].numOfItems.toString()
                 holder.binding.titleFirst.text = order.dishes[0].title
 
                 holder.binding.amountSecond.visibility = View.INVISIBLE
@@ -99,7 +96,6 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
                 holder.binding.titleThird.visibility = View.INVISIBLE
                 holder.binding.x3.visibility = View.INVISIBLE
                 holder.binding.x2.visibility = View.INVISIBLE
-
 
 
                 var total: Int = 0
@@ -121,13 +117,6 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
                     it.onDelete(order)
                 }
             }
-
-
-
-
-
-
-
 
 
         }
@@ -169,7 +158,8 @@ class OrdersAdapter() : RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
 
 
     }
-    interface MyClickListener: AdapterView.OnItemClickListener {
+
+    interface MyClickListener : AdapterView.OnItemClickListener {
         fun onNavigate(p: Order?)
         fun onDelete(p: Order)
 

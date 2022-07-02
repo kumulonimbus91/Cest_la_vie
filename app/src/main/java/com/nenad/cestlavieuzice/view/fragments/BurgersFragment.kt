@@ -38,15 +38,23 @@ class BurgersFragment : Fragment() {
 
         return mBinding.root
     }
+
     fun setOnClickListeners() {
         mBinding.burgerKlasik.setOnClickListener {
             path =
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.burger_klasik)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Burger Klasik",
-                null, "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata", false, false, 1, 540,
-                null, imgPath
+                null,
+                "Burger Klasik",
+                null,
+                "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata",
+                false,
+                false,
+                1,
+                540,
+                null,
+                imgPath
             )
             action = BurgersFragmentDirections.actionBurgersFragmentToOverviewFragment(dish)
 
@@ -57,9 +65,16 @@ class BurgersFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.burger_xxl)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Burger Klasik XXL",
-                null, "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata", false, false, 1, 640,
-                null, imgPath
+                null,
+                "Burger Klasik XXL",
+                null,
+                "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata",
+                false,
+                false,
+                1,
+                640,
+                null,
+                imgPath
             )
             action = BurgersFragmentDirections.actionBurgersFragmentToOverviewFragment(dish)
 
@@ -70,9 +85,16 @@ class BurgersFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.burger_gurman)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Burger Gurman",
-                null, "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata", false, false, 1, 540,
-                null, imgPath
+                null,
+                "Burger Gurman",
+                null,
+                "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata",
+                false,
+                false,
+                1,
+                540,
+                null,
+                imgPath
             )
             action = BurgersFragmentDirections.actionBurgersFragmentToOverviewFragment(dish)
 
@@ -83,9 +105,16 @@ class BurgersFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.burger_fishburger)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Fishburger",
-                null, "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata", false, false, 1, 540,
-                null, imgPath
+                null,
+                "Fishburger",
+                null,
+                "Govedina, burger preliv, Hoffmaster sir, Heinz kecap, Iceberg salata",
+                false,
+                false,
+                1,
+                540,
+                null,
+                imgPath
             )
             action = BurgersFragmentDirections.actionBurgersFragmentToOverviewFragment(dish)
 

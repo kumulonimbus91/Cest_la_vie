@@ -25,12 +25,12 @@ class IntroScreen : AppCompatActivity() {
 
     private fun setOnClickListeners() {
         mBinding.loginbtn.setOnClickListener {
-            val intent = Intent (this@IntroScreen, LogInActivity::class.java)
+            val intent = Intent(this@IntroScreen, LogInActivity::class.java)
             startActivity(intent)
             finish()
         }
         mBinding.signupbtn.setOnClickListener {
-            val intent = Intent (this@IntroScreen, SignUpActivity::class.java)
+            val intent = Intent(this@IntroScreen, SignUpActivity::class.java)
             startActivity(intent)
             finish()
         }

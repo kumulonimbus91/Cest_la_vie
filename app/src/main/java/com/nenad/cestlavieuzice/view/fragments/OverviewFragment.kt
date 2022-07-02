@@ -140,7 +140,7 @@ class OverviewFragment : Fragment() {
             } else if (counter == 9) {
                 mBinding.addBtn.isEnabled = false
                 mBinding.subtractBtn.isEnabled = true
-            }  else if (counter in 2..8) {
+            } else if (counter in 2..8) {
                 mBinding.addBtn.isEnabled = true
                 mBinding.subtractBtn.isEnabled = true
             }

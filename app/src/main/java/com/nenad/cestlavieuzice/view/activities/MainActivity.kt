@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
         setOnClickListeners()
         drawerItemSelectedListener()
-        mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+        mBinding.pizzeBtn.background =
+            ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
 
         viewModel = ViewModelProvider(this)[ViewModel::class.java]
 
@@ -65,7 +66,8 @@ class MainActivity : AppCompatActivity() {
         mBinding.pizzeBtn.setOnClickListener {
 
             mNavController.navigate(R.id.pizzaFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.pizzeBtn.background =
+                ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
@@ -74,38 +76,42 @@ class MainActivity : AppCompatActivity() {
         mBinding.burgeri.setOnClickListener {
 
             mNavController.navigate(R.id.burgersFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.pizzeBtn.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.burgeri.background =
+                ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.tortilje.setOnClickListener {
 
             mNavController.navigate(R.id.tortillasFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.pizzeBtn.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.tortilje.background =
+                ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.sendvici.setOnClickListener {
 
             mNavController.navigate(R.id.sandwichesFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.pizzeBtn.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
-            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.sendvici.background =
+                ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
         }
         mBinding.ostalo.setOnClickListener {
 
             mNavController.navigate(R.id.otherFragment)
-            mBinding.pizzeBtn.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.pizzeBtn.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.tortilje.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
             mBinding.sendvici.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.burgeri.background =  ContextCompat.getDrawable(this, R.drawable.btn_selected)
-            mBinding.ostalo.background = ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
+            mBinding.burgeri.background = ContextCompat.getDrawable(this, R.drawable.btn_selected)
+            mBinding.ostalo.background =
+                ContextCompat.getDrawable(this, R.drawable.main_menu_btn_selected)
         }
         mBinding.imgMenu.setOnClickListener {
 

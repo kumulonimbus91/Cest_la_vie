@@ -39,6 +39,7 @@ class TortillasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListeners()
     }
+
     fun setOnClickListeners() {
         mBinding.ham.setOnClickListener {
             path =
@@ -46,10 +47,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa sunkom",
-                null, "Šunka, trapist, pavlaka + dodaci po izboru", true, true, 1, 280,360,
+                null, "Šunka, trapist, pavlaka + dodaci po izboru", true, true, 1, 280, 360,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -59,10 +61,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa pilecim prsima",
-                null, "Pileće grudi, trapist, pavlaka + dodaci po izboru", true, true, 1, 280,360,
+                null, "Pileće grudi, trapist, pavlaka + dodaci po izboru", true, true, 1, 280, 360,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -72,10 +75,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa kulenom",
-                null, "Kulen, trapist, pavlaka + dodaci po izboru", true, true, 1, 250,320,
+                null, "Kulen, trapist, pavlaka + dodaci po izboru", true, true, 1, 250, 320,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -85,10 +89,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa suvim vratom",
-                null, "Suvi vrat, trapist, pavlaka + dodaci po izboru", true, true, 1, 300,370,
+                null, "Suvi vrat, trapist, pavlaka + dodaci po izboru", true, true, 1, 300, 370,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -98,10 +103,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa cajnom",
-                null, "Čajna, trapist, pavlaka + dodaci po izboru", true, true, 1, 230,310,
+                null, "Čajna, trapist, pavlaka + dodaci po izboru", true, true, 1, 230, 310,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -111,10 +117,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa pecenicom",
-                null, "Pečenica, trapist, pavlaka + dodaci po izboru", true, true, 1, 290,370,
+                null, "Pečenica, trapist, pavlaka + dodaci po izboru", true, true, 1, 290, 370,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -124,10 +131,11 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa curecim prsima",
-                null, "Ćureće grudi, trapist, pavlaka + dodaci po izboru", true, true, 1, 280,340,
+                null, "Ćureće grudi, trapist, pavlaka + dodaci po izboru", true, true, 1, 280, 340,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
@@ -137,15 +145,14 @@ class TortillasFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Tortilja sa prsutom",
-                null, "Pršuta, trapist, pavlaka + dodaci po izboru", true, true, 1, 260,310,
+                null, "Pršuta, trapist, pavlaka + dodaci po izboru", true, true, 1, 260, 310,
                 imgPath
             )
-            action = TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
+            action =
+                TortillasFragmentDirections.actionTortillasFragmentToOverviewFragment(dish) as TortillasFragmentDirections.ActionTortillasFragmentToOverviewFragment
 
             findNavController().navigate(action)
         }
-
-
 
 
     }

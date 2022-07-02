@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PizzaFragment : Fragment() {
 
     private lateinit var mBinding: FragmentPizzaBinding
-    lateinit var dish:Dish
+    lateinit var dish: Dish
     lateinit var path: Uri
     lateinit var action: PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
     lateinit var mNavController: NavController
@@ -40,7 +40,6 @@ class PizzaFragment : Fragment() {
         return mBinding.root
 
 
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,11 +56,11 @@ class PizzaFragment : Fragment() {
             dish = Dish(
                 null, "Pizza Capricciosa",
                 null, "Kečap, sir, šunka, pečurke - 30cm ", false, false, 1, 340,
-                null,imgPath
+                null, imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
-
 
 
         }
@@ -70,11 +69,19 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_siciliana)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Pizza Siciliana",
-                null, "Kecap,sir, pečurke, feferoni, suvi vrat, pršuta, feta sir - 30cm", false, false, 1, 340,
-                null,imgPath
+                null,
+                "Pizza Siciliana",
+                null,
+                "Kecap,sir, pečurke, feferoni, suvi vrat, pršuta, feta sir - 30cm",
+                false,
+                false,
+                1,
+                340,
+                null,
+                imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaCest.setOnClickListener {
@@ -82,11 +89,19 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_cest_la_vie)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Pizza Cest La Vie",
-                null, "Kečap, sir, šunka, kobasica, suvi vrat, pečurke, feferoni, feta sir - 30cm", false, false, 1, 340,
-                null,imgPath
+                null,
+                "Pizza Cest La Vie",
+                null,
+                "Kečap, sir, šunka, kobasica, suvi vrat, pečurke, feferoni, feta sir - 30cm",
+                false,
+                false,
+                1,
+                340,
+                null,
+                imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaQuatro.setOnClickListener {
@@ -94,11 +109,19 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_quatro_stagione)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Pizza Quatro Stagione",
-                null, "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 30cm", false, false, 1, 340,
-                null,imgPath
+                null,
+                "Pizza Quatro Stagione",
+                null,
+                "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 30cm",
+                false,
+                false,
+                1,
+                340,
+                null,
+                imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
 
         }
@@ -109,9 +132,10 @@ class PizzaFragment : Fragment() {
             dish = Dish(
                 null, "Pizza Vojvodjanka",
                 null, "Kečap, sir, pečurke, slanina, jaja, feferoni - 30cm", false, false, 1, 340,
-                null,imgPath
+                null, imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaVege.setOnClickListener {
@@ -121,9 +145,10 @@ class PizzaFragment : Fragment() {
             dish = Dish(
                 null, "Pizza Vegeterijana",
                 null, "Kečap, sir, pečurke, paprika, masline - 30cm", false, false, 1, 340,
-                null,imgPath
+                null, imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
 
@@ -134,9 +159,10 @@ class PizzaFragment : Fragment() {
             dish = Dish(
                 null, "Porodična Capricciosa",
                 null, "Kečap, sir, šunka, pečurke - 42cm", false, false, 1, 1050,
-                null,imgPath
+                null, imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pizzaPorodicnaQuatr.setOnClickListener {
@@ -144,11 +170,19 @@ class PizzaFragment : Fragment() {
                 Uri.parse("android.resource://com.nenad.cestlavieuzice/" + R.drawable.pizza_quatro_stagione)
             val imgPath: String = path.toString()
             dish = Dish(
-                null, "Porodična Quatro Stagione",
-                null, "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 42cm", false, false, 1, 1090,
-                null,imgPath
+                null,
+                "Porodična Quatro Stagione",
+                null,
+                "Kečap, sir, šunka, pečurke,suvi vrat, slanina, jaja, pavlaka - 42cm",
+                false,
+                false,
+                1,
+                1090,
+                null,
+                imgPath
             )
-            action = PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
+            action =
+                PizzaFragmentDirections.actionPizzaFragmentToOverviewFragment(dish) as PizzaFragmentDirections.ActionPizzaFragmentToOverviewFragment
             mNavController.navigate(action)
 
 

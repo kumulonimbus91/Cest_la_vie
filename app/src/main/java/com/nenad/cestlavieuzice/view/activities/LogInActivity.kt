@@ -49,6 +49,7 @@ class LogInActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     private fun signInRegisteredUser() {
         // Here we get the text from editText and trim the space
         val email: String = mBinding.etEmail.text.toString().trim { it <= ' ' }
@@ -74,6 +75,7 @@ class LogInActivity : AppCompatActivity() {
                 }
         }
     }
+
     /**
      * A function to get the user details from the firestore database after authentication.
      */
@@ -84,6 +86,7 @@ class LogInActivity : AppCompatActivity() {
         startActivity(Intent(this@LogInActivity, MainActivity::class.java))
         this.finish()
     }
+
     private fun validateForm(email: String, password: String): Boolean {
         return if (TextUtils.isEmpty(email)) {
             showErrorSnackBar("Please enter email.")

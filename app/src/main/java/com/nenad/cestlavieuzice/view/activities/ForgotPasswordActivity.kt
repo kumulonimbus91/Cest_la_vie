@@ -20,16 +20,21 @@ class ForgotPasswordActivity : AppCompatActivity() {
         mBinding.sendBtn.setOnClickListener {
             val email: String = mBinding.etEmail.text.toString().trim { it <= ' ' }
             if (email.isEmpty()) {
-                Toast.makeText(this,"Upišite email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Upišite email", Toast.LENGTH_SHORT).show()
             } else {
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener{ task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this,"Email je poslat", Toast.LENGTH_SHORT).show()
-                        finish()
-                    } else {
-                        Toast.makeText(this,task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Email je poslat", Toast.LENGTH_SHORT).show()
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                task.exception!!.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                }
             }
 
 

@@ -33,7 +33,6 @@ class HistoryFragment : Fragment() {
     lateinit var mNavController: NavController
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +53,6 @@ class HistoryFragment : Fragment() {
             ordersAdapter.differ.submitList(it)
 
 
-
         })
 
 
@@ -70,7 +68,6 @@ class HistoryFragment : Fragment() {
         super.onAttach(context)
         requireActivity().findViewById<ViewGroup>(R.id.ll_go).visibility = View.GONE
     }
-
 
 
     fun setUpRv() {

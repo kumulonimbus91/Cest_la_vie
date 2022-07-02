@@ -30,7 +30,6 @@ class SandwichesFragment : Fragment() {
     lateinit var mNavController: NavController
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,10 +55,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa sunkom",
-                null, "Šunka + dodaci po izboru", true, true, 1, 240,330,
+                null, "Šunka + dodaci po izboru", true, true, 1, 240, 330,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
 
         }
@@ -69,10 +69,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic pileca prsa",
-                null, "Pileća prsa + dodaci po izboru", true, true, 1, 260,350,
+                null, "Pileća prsa + dodaci po izboru", true, true, 1, 260, 350,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.kulen.setOnClickListener {
@@ -81,10 +82,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa kulenom",
-                null, "Kulen + dodaci po izboru", true, true, 1, 220,310,
+                null, "Kulen + dodaci po izboru", true, true, 1, 220, 310,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.cajna.setOnClickListener {
@@ -93,10 +95,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa cajnom",
-                null, "Čajna + dodaci po izboru", true, true, 1, 200,280,
+                null, "Čajna + dodaci po izboru", true, true, 1, 200, 280,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.pecenica.setOnClickListener {
@@ -105,10 +108,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa pecenicom",
-                null, "Pečenica + dodaci po izboru", true, true, 1, 250,330,
+                null, "Pečenica + dodaci po izboru", true, true, 1, 250, 330,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.prsuta.setOnClickListener {
@@ -117,10 +121,11 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvic sa prsutom",
-                null, "Pršuta + dodaci po izboru", true, true, 1, 270,360,
+                null, "Pršuta + dodaci po izboru", true, true, 1, 270, 360,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
         mBinding.turkeyBreasts.setOnClickListener {
@@ -129,18 +134,17 @@ class SandwichesFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Sendvič sa ćurecim prsima",
-                null, "Ćureća prsa + dodaci po izboru", true, true, 1, 270,360,
+                null, "Ćureća prsa + dodaci po izboru", true, true, 1, 270, 360,
                 imgPath
             )
-            action = SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
+            action =
+                SandwichesFragmentDirections.actionSandwichesFragmentToOverviewFragment(dish) as SandwichesFragmentDirections.ActionSandwichesFragmentToOverviewFragment
             mNavController.navigate(action)
         }
 
 
-
-
-
     }
+
     private val clickTag = "__click__"
     fun View.blockingClickListener(debounceTime: Long = 1200L, action: () -> Unit) {
         this.setOnClickListener(object : View.OnClickListener {
@@ -148,17 +152,18 @@ class SandwichesFragment : Fragment() {
             override fun onClick(v: View) {
                 val timeNow = SystemClock.elapsedRealtime()
                 val elapsedTimeSinceLastClick = timeNow - lastClickTime
-                Log.d(clickTag, """
+                Log.d(
+                    clickTag, """
                         DebounceTime: $debounceTime
                         Time Elapsed: $elapsedTimeSinceLastClick
                         Is within debounce time: ${elapsedTimeSinceLastClick < debounceTime}
-                    """.trimIndent())
+                    """.trimIndent()
+                )
 
                 if (elapsedTimeSinceLastClick < debounceTime) {
                     Log.d(clickTag, "Double click shielded")
                     return
-                }
-                else {
+                } else {
                     Log.d(clickTag, "Click happened")
                     action()
                 }

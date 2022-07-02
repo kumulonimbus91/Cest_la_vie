@@ -84,15 +84,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
         fetchLocation()
 
 
-
-
-
-
-
-
-
-
-
         orderAg = arguments?.getParcelable("order")
 
         mAddress = arguments?.getString("address")
@@ -113,10 +104,6 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
                     } else if (dishes[i].priceBig != null) {
                         total += dishes[i].priceBig!!
                     }
-
-
-
-
 
 
                 }
@@ -215,7 +202,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
                 this.findNavController().popBackStack()
             } else if (mLat != 0.0 && mLong != 0.0 && mAddress != null) {
                 //findNavController().popBackStack(R.id.adressFragment, true)
-                    findNavController().popBackStack(R.id.orderFragment, true)
+                findNavController().popBackStack(R.id.orderFragment, true)
                 this.findNavController().popBackStack()
             } else {
                 this.findNavController().popBackStack()
@@ -413,6 +400,7 @@ class OrderFragment : Fragment(), OnMapReadyCallback {
 
 
     }
+
     fun <T> hasDuplicates(arr: List<Dish>): Boolean {
         return arr.size != arr.distinct().count();
 

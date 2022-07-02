@@ -45,6 +45,7 @@ class SignUpActivity : AppCompatActivity() {
             registerUser()
         }
     }
+
     fun userRegisteredSuccess() {
 
         Toast.makeText(
@@ -64,13 +65,15 @@ class SignUpActivity : AppCompatActivity() {
         // Finish the Sign-Up Screen
         finish()
     }
+
     private fun registerUser(): Boolean {
         // Here we get the text from editText and trim the space
-        val name: String = mBinding.etName.text.toString().trim { it <= ' '  }
+        val name: String = mBinding.etName.text.toString().trim { it <= ' ' }
         val email: String = mBinding.etEmail.text.toString().trim { it <= ' ' }
         val phoneNum: String = mBinding.etPhone.text.toString().trim { it <= ' ' }
         val password: String = mBinding.etPassword.text.toString().trim { it <= ' ' }
-        val passwordConfirmed: String = mBinding.etPasswordConfirm.text.toString().trim { it <= ' ' }
+        val passwordConfirmed: String =
+            mBinding.etPasswordConfirm.text.toString().trim { it <= ' ' }
 
         if (validateForm(name, email, phoneNum, password, passwordConfirmed)) {
             // Show the progress dialog.
@@ -106,7 +109,14 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
     }
-    private fun validateForm(name: String, email: String, phoneNum: String, password: String, passwordConfirmed: String): Boolean {
+
+    private fun validateForm(
+        name: String,
+        email: String,
+        phoneNum: String,
+        password: String,
+        passwordConfirmed: String
+    ): Boolean {
         return when {
             TextUtils.isEmpty(name) -> {
                 showErrorSnackBar("Molimo unesite ime.")
@@ -142,6 +152,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
     }
+
     fun showErrorSnackBar(message: String) {
         val snackBar =
             Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
@@ -154,11 +165,12 @@ class SignUpActivity : AppCompatActivity() {
         )
         snackBar.show()
     }
+
     fun showProgressDialog(text: String) {
 
 
-
     }
+
     fun hideProgressDialog() {
 
     }

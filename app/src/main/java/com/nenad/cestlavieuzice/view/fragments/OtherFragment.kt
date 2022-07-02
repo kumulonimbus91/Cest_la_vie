@@ -47,7 +47,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Komplet lepinja",
-                null, "Pretop, Kajmak, Jaja", false, false, 1, 280,360,
+                null, "Pretop, Kajmak, Jaja", false, false, 1, 280, 360,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -61,7 +61,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pomfrit",
-                null, null, true, false, 1, 110,160,
+                null, null, true, false, 1, 110, 160,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -74,7 +74,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Pileci giros",
-                null, "Piletina, caciki, pomfrit, zelena salata", true, true, 1, 280,360,
+                null, "Piletina, caciki, pomfrit, zelena salata", true, true, 1, 280, 360,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -87,7 +87,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Svinjski giros",
-                null, "Svinjetina, caciki, pomfrit, zelena salata", true, true, 1, 280,360,
+                null, "Svinjetina, caciki, pomfrit, zelena salata", true, true, 1, 280, 360,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
@@ -100,7 +100,7 @@ class OtherFragment : Fragment() {
             val imgPath: String = path.toString()
             dish = Dish(
                 null, "Senf",
-                null, null, false, false, 1, 330,330,
+                null, null, false, false, 1, 330, 330,
                 imgPath
             )
             action = OtherFragmentDirections.actionOtherFragmentToOverviewFragment(dish)
