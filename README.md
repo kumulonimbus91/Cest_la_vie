@@ -6,7 +6,6 @@ MVVM, <br />
 Dagger Hilt :dagger:, <br />
 Coroutines :arrows_clockwise:,<br />
 Room database :dvd:, <br />
-Data binding :dizzy:,<br />
 Navigation component :leftwards_arrow_with_hook:, <br />
 
 To get full performance of the app put your Google maps API key in local properties with the name key= "YOUR_API_KEY"
